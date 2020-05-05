@@ -1,19 +1,14 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-
-import { URL_LOGIN } from "Helpers/Paths";
 
 function ProtectedRoute(props) {
-	const { isLoggedIn, children } = props
+	const { children } = props
 	return (
 		<div>
 			{
-				!isLoggedIn ?
-					<Redirect to={URL_LOGIN} />
-					: <Fragment>
-						{children}
-					</Fragment>
+				<Fragment>
+					{children}
+				</Fragment>
 			}
 		</div>
 	)

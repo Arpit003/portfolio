@@ -1,31 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
 
-import Button from '@material-ui/core/Button';
-import { URL_DASHBOARD, URL_USER } from "Helpers/Paths";
-import { ToolbarWrapper, LinksWrapper } from "./Topbar.style";
+import { faHome, faUser, faUserCog, faEnvelope, faEye, faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { URL_HOME, URL_ABOUT } from "Helpers/Paths";
+import { ToolbarWrapper, TopBarWrapper } from "./Topbar.style";
 
 
 function Topbar(props) {
-    function navigateTo(url){
-        props.history.push(url)
+    const [isResponsive, setResponsiveState] = useState(false);
+
+    const makeResponsive = () => {
+        setResponsiveState(!isResponsive)
     }
 
-    return (
-        <AppBar position="static">
-            <ToolbarWrapper>
-                <Typography variant="h6" >
-                    OpenXcell
-                </Typography>
+    const changePage = (path) => {
+        setResponsiveState(!isResponsive)
+        props.history.push(path)
+    }
 
-                <LinksWrapper>
-                    <Button color="inherit" onClick={() => navigateTo(URL_DASHBOARD)}>Dashboard</Button>
-                    <Button color="inherit" onClick={() => navigateTo(URL_USER)}>User</Button>
-                </LinksWrapper>
+    let pathName = props.location.pathname;
+    return (
+        <TopBarWrapper>
+            <ToolbarWrapper isResponsive={isResponsive ? 1 : 0}>
+                <div>
+                    <FontAwesomeIcon icon={faBars} className="menu" onClick={() => makeResponsive()} />
+                </div>
+                <div className="icons">
+                    <div className="icon">
+                        <FontAwesomeIcon icon={faHome} className={`icon-property ${pathName === URL_HOME && "active"}`} onClick={() => changePage(URL_HOME)} />
+                        <FontAwesomeIcon icon={faUser} className={`icon-property ${pathName === URL_ABOUT && "active"}`} onClick={() => changePage(URL_ABOUT)} />
+                        <FontAwesomeIcon icon={faUserCog} className="icon-property" />
+                        <FontAwesomeIcon icon={faEye} className="icon-property" />
+                        <FontAwesomeIcon icon={faEnvelope} className="icon-property" />
+                    </div>
+                </div>
             </ToolbarWrapper>
-        </AppBar>
+        </TopBarWrapper>
     );
 }
 
