@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 // USER DEFINED
 import Routes from "Routes/Route";
 import TopBar from "./Commons/Topbar/Topbar";
-import EventManager from "./EventManager/EventManager";
 import { ContentWrapper } from "./Website.style";
 
 
@@ -18,8 +17,6 @@ class Website extends Component {
 				<ContentWrapper>
 					<Routes />
 				</ContentWrapper>
-
-				<EventManager />
 			</React.Fragment>
 		);
 	}
@@ -29,7 +26,7 @@ class Website extends Component {
 // const mapReduxStateToProps = (state) => ({
 // 	isLoggedIn: state.Auth.isLoggedIn,
 // })
-  
+
 // export default connect(mapReduxStateToProps)(Website);
 
 export default Website;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { AboutWrapper } from './About.style';
 import { HtmlTagWrapper, BodyTagWrapper, AnimationTextWrapper } from 'Components/Website.style';
-
+import reacticon from 'Assets/icons/react.png';
 
 function About() {
     return (
@@ -35,13 +35,24 @@ function About() {
                         {"Interested in the entire frontend/backend spectrum and working on ambitious projects with positive people."}
                     </h3>
                 </p>
-
-                <section id="pyramid">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </section>
+                {
+                    // <section id="pyramid">
+                    //     <div></div>
+                    //     <div></div>
+                    //     <div></div>
+                    //     <div></div>
+                    // </section>
+                }
+                <div className="parent">
+                    {
+                            <div className="image-position">
+                            <div className="image1" style={{ backgroundImage: `url(${reacticon})` }}>
+                            </div>
+                        </div>
+                    }
+                    <div className="profile" style={{ backgroundImage: `url(${reacticon})` }}>
+                    </div>
+                </div>
             </div>
             <BodyTagWrapper>{"</body>"}</BodyTagWrapper>
             <HtmlTagWrapper>{"</html>"}</HtmlTagWrapper>

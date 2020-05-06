@@ -3,7 +3,7 @@ import { responsive } from "Styles/Constants";
 
 export const ToolbarWrapper = styled.div`
     width             : 70px;
-    height            : 100vh;
+    height            : 100%;
     background-color  : #181818;
     position          : absolute;
 

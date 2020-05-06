@@ -30,9 +30,19 @@ export const BodyTagWrapper = styled.div`
         from { opacity: 0; }
         to { opacity: 1; }
     }
+
+    ${responsive.LAPTOP`
+        padding  : 0;
+        margin   : 50px 0 0 30px;
+    `}
+
     ${responsive.PHABLET`
         padding  : 0;
         margin   : 50px 0 0 40px;
+    `}
+
+    ${responsive.MOBILE`
+        margin   : 30px 0 0 40px;
     `}
 `
 
@@ -42,9 +52,18 @@ export const HtmlTagWrapper = styled.div`
     padding      : 50px 0 0 30px;
     color        : #4b4b4b;
 
+    ${responsive.LAPTOP`
+        padding  : 0;
+        margin   : 50px 0 0 20px;
+    `}
+
     ${responsive.PHABLET`
         padding  : 0;
         margin   : 50px 0 0 20px;
+    `}
+
+    ${responsive.MOBILE`
+        margin   : 20px 0 0 20px;
     `}
 `
 

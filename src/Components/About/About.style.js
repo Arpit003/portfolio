@@ -1,18 +1,42 @@
 import styled from 'styled-components';
 import { FONTS, responsive } from 'Styles/Constants';
+import { BodyTagWrapper, HtmlTagWrapper } from 'Components/Website.style';
 
 export const AboutWrapper = styled.div`
     color  : white;
     overflow : hidden;
 
+    ${BodyTagWrapper}{
+        ${responsive.TABLET`
+            margin  : 30px 0 0 40px;
+        `}
+
+        ${responsive.PHABLET`
+            margin  : 20px 0 0 40px;
+        `}
+    }
+
+    ${HtmlTagWrapper}{
+        ${responsive.TABLET`
+            margin  : 30px 0 0 20px;
+        `}
+
+        ${responsive.PHABLET`
+            margin  : 20px 0 0 20px;
+        `}
+    }
+        
     .html-tag-h1-start {
         font-family  : ${FONTS.PRIMARY_ITALIC};
         font-size    : 18px;
         margin       : 130px 0 0 70px;
         color        : #4b4b4b;
 
+        ${responsive.LAPTOP`
+            margin  : 130px 0 0  40px;
+        `}
         ${responsive.TABLET`
-            margin  : 120px 0 0 50px;        
+            margin  : 10px 0 0 50px;        
         `}
 
     }
@@ -22,6 +46,10 @@ export const AboutWrapper = styled.div`
         font-size    : 18px;
         margin       : 10px 0 0 70px;
         color        : #4b4b4b;
+
+        ${responsive.LAPTOP`
+            margin  : 10px 0 0  40px;
+        `}
 
         ${responsive.PHABLET`
             margin  : 10px 0 0 50px;        
@@ -36,13 +64,20 @@ export const AboutWrapper = styled.div`
         color  : #08fdd8;
     }
 
+    .intro {
+
+        ${responsive.LAPTOP`
+            margin  : 0 0 0 50px;
+        `}
+    }
+
     .middle-section {
         display    : flex;
         flex-wrap  : wrap;
 
         .paragraph {
             flex-direction       : row;
-            width                : 500px;
+            width                : 40%;
             letter-spacing       : 1px;
             font-family          : ${FONTS.PRIMARY_LIGHT};
             margin               : 0 0 0 70px;
@@ -55,21 +90,135 @@ export const AboutWrapper = styled.div`
                 from { opacity: 0; }
                 to { opacity: 1; }
             }
+
+            ${responsive.LAPTOP`
+                width   : 30%;
+                margin  : 0 0 0 50px;
+            `};
+            
+            ${responsive.TABLET`
+                width   : 80%;
+                margin  : 0 0 0 50px;
+            `}
+
             ${responsive.PHABLET`
-                font-size  : 16px;
+                font-size  : 14px;
                 margin     : 0 0 0 50px;
-                width      : 400px;
+                width      : 90%;
             `}
 
             ${responsive.MOBILE`
-                font-size  : 14px;
-                width      : 300px;
+                font-size  : 12px;
                 margin     : 0 0 0 30px;
             `}
         }
 
+
+        /* CIRCLE LOGIC */
+        .parent {
+            width          : 600px;
+            height         : 600px;
+            border-radius  : 50%;
+            border         : 1px solid;
+            animation      : rotation 30s infinite linear;
+            margin         : -200px 0 0 80px;
+
+            ${responsive.DESKTOP`
+                width   : 400px;
+                height  : 400px;
+                margin  : -100px 0 0 150px;
+            `}
+            
+            ${responsive.DESKTOP`
+                margin  : -100px 0 0 100px;
+            `}
+
+            ${responsive.TABLET`
+                width   : 300px;
+                height  : 300px;
+                margin  : 10px 0 0 90px;
+            `}
+
+            ${responsive.PHABLET`
+                margin  : 30px auto 0;
+            `}
+
+            ${responsive.MOBILE`
+                width   : 240px;
+                height  : 240px;
+            `}
+
+        @keyframes rotation {
+            from {
+                transform  : rotate(0deg);
+            }
+            to {
+                transform  : rotate(359deg);
+            }
+        }
+
+        .image-position {
+            transform   : translate(300%,20%);
+            width       : 150px;
+            height      : 150px;
+
+            ${responsive.DESKTOP`
+                width   : 100px;
+                height  : 100px;
+            `}
+
+            ${responsive.TABLET`
+                height  : 75px;
+                width   : 75px;
+            `}
+
+            ${responsive.MOBILE`
+                height  : 60px;
+                width   : 60px;
+            `}
+            .image1 {
+                width                : 100%;
+                height               : 100%;
+                border-radius        : 50%;
+                background-position  : center;
+                background-repeat    : no-repeat;
+                background-size      : cover;
+            }
+        }
+
+        .profile {
+            width                : 300px;
+            height               : 300px;
+            background-color     : red;
+            margin               : 0 auto;
+            border-radius        : 50%;
+            rotate               : 360deg;
+            /* transform            : translate(0,-50%); */
+            position             : relative;
+            /* top                  : 50%; */
+            background-repeat    : no-repeat;
+            background-size      :cover;
+            background-position  :center;
+
+            ${responsive.DESKTOP`
+                width   : 200px;
+                height  : 200px;
+            `}
+
+            ${responsive.TABLET`
+                width   : 150px;
+                height  : 150px;
+            `}
+
+            ${responsive.MOBILE`
+                width   : 120px;
+                height  : 120px;
+            `}
+        }
+    }
+
         /* TRIANGLE LOGIC */
-        #pyramid {
+        /* #pyramid {
             transform-origin  : 116px 200px 116px;
             animation         : spin 10s linear infinite;
             transform-style   : preserve-3d;
@@ -103,7 +252,7 @@ export const AboutWrapper = styled.div`
                 transform     : rotateY(-19.5deg) rotateX(180deg) translateY(-400px);
 
                 ::after {
-                    content   : url(//jacekjeznach.com/wp-content/themes/jj/css/../img/logo1.png);
+                    content   : url(//jacekjeznach.com/wp-content/themes/jj/css/../img/logo2.png);
                     position  : absolute;
 
                 }
@@ -150,6 +299,6 @@ export const AboutWrapper = styled.div`
             to {
                 transform  : rotateX(360deg) rotateY(360deg) rotateZ(360deg);
             }
-        }
+        } */
     }
 `

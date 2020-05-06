@@ -16,7 +16,7 @@ export const HomeWrapper = styled.div`
         `}
 
         ${responsive.MOBILE`
-            margin  : 130px 0 0 40px;        
+            margin  : 30px 0 0 40px;        
         `}
     }
 
@@ -62,6 +62,10 @@ export const HomeWrapper = styled.div`
 
     .end-tag {
         margin  : 100px 0 0;
+
+        ${responsive.MOBILE`
+            margin  : 10px 0 0;
+        `}
     }
 
     .contact {
