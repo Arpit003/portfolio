@@ -4,54 +4,65 @@ import { Button } from "@material-ui/core";
 import { BodyTagWrapper, HtmlTagWrapper, AnimationTextWrapper } from "Components/Website.style";
 
 function User(props) {
+
     return (
         <HomeWrapper>
             <HtmlTagWrapper>{"<html>"}</HtmlTagWrapper>
             <BodyTagWrapper>{"<body>"}</BodyTagWrapper>
-            <div className="html-tag-h1-start">{"<h1>"}</div>
-            <AnimationTextWrapper>
-                <div className="intro anim-typewriter">
-                    <span className="blast">H</span>
-                    <span className="blast">i</span>
-                    <span className='blast'>,</span>
-                    <br />
-                    <span className="blast">I</span>
-                    <span className="blast">'</span>
-                    <span className="blast">m</span>
-                    &nbsp;
-                <span className="blast">A</span>
-                    <span className="blast">r</span>
-                    <span className="blast">p</span>
-                    <span className="blast">i</span>
-                    <span className="blast">t</span>
-                    <span className="blast">,</span>
-                    <br />
-                    <span className="blast">F</span>
-                    <span className="blast">u</span>
-                    <span className="blast">l</span>
-                    <span className="blast">l</span>
-                    <span className="blast">S</span>
-                    <span className="blast">t</span>
-                    <span className="blast">a</span>
-                    <span className="blast">c</span>
-                    <span className="blast">k</span>
-                    &nbsp;
-                <span className="blast">D</span>
-                    <span className="blast">e</span>
-                    <span className="blast">v</span>
-                    <span className="blast">e</span>
-                    <span className="blast">l</span>
-                    <span className="blast">o</span>
-                    <span className="blast">p</span>
-                    <span className="blast">e</span>
-                    <span className="blast">r</span>
-                    <span className="blast">.</span>
-                    <br />
+
+            {/* MAIN CONTAINER */}
+            <div className="container">
+
+                {/* LEFT SIDE TEXT */}
+                <div className="left-side">
+                    <div className="html-tag-h1-start">{"<h1>"}</div>
+                    <AnimationTextWrapper>
+
+                        {/* ANIMATION ON WORDS */}
+                        <div className="intro anim-typewriter">
+                            {separateWords("Hi,")}
+                            <br />
+                            {separateWords("I'm")}
+                            &nbsp;
+                            {separateWords("Arpit,")}
+                            <br />
+                            {separateWords("FullStack")}
+                            &nbsp;
+                            {separateWords("Developer.")}
+                            <br />
+                        </div>
+                    </AnimationTextWrapper>
+                    <div className="html-tag-h1-end">{"<h1/>"}</div>
+                    <div className="stacks">Front End Developer / Back End Developer</div>
+                    <Button variant="outlined" className="contact">CONTACT ME</Button>
                 </div>
-            </AnimationTextWrapper>
-            <div className="html-tag-h1-end">{"<h1/>"}</div>
-            <div className="stacks">Front End Developer / Back End Developer</div>
-            <Button variant="outlined" className="contact">CONTACT ME</Button>
+                {/* RIGHT SIDE ANIMATION */}
+                {
+                    <div className="right-side">
+                        <div className="image-logo">
+                            <svg viewBox="0 0 10px 10px">
+                                <symbol id="s-text">
+                                    <text text-anchor="middle"
+                                        x="50%"
+                                        y="35%"
+                                        style={{ transform: "translate(0,50%)" }}
+                                        className="text-line"
+                                    >A</text>
+                                </symbol>
+                                <g class="g-ants">
+
+                                    <use xlinkHref="#s-text" className="text-copy" />
+                                    <use xlinkHref="#s-text" className="text-copy" />
+                                    <use xlinkHref="#s-text" className="text-copy" />
+                                    <use xlinkHref="#s-text" className="text-copy" />
+                                    <use xlinkHref="#s-text" className="text-copy" />
+
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                }
+            </div>
             <div className="end-tag" />
             <BodyTagWrapper>{"</body>"}</BodyTagWrapper>
             <HtmlTagWrapper>{"</html>"}</HtmlTagWrapper>
@@ -60,3 +71,19 @@ function User(props) {
 }
 
 export default User;
+
+/*
+ *  COMMON FUNCTION FOR CREATE WORD & SINGLE CHARACTER ANIMATION
+ */
+const separateWords = (words, type = "single") => {
+
+    let text = (type === "single") ? words.split('') : words.split(' ');
+
+    let spans = undefined;
+
+    spans = text.map(item => {
+        return <span className="blast">{item}</span>
+    })
+
+    return spans;
+}

@@ -7,6 +7,7 @@ export const ContentWrapper = styled.div`
 
     ${responsive.PHABLET`
         margin  : 0;
+        padding : 80px 0 0;
     `}
 `;
 
@@ -94,6 +95,7 @@ export const AnimationTextWrapper = styled.div`
 
         ${responsive.TABLET`
             font-size  : 50px;
+            margin     : 0 0 0 50px;
         `}
 
         ${responsive.PHABLET`
@@ -147,7 +149,7 @@ export const AnimationTextWrapper = styled.div`
                 }
     
             to { 
-                    width  : 610px;
+                    width  : 670px;
                     height : 100%;
                 }
         }

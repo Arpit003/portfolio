@@ -1,7 +1,10 @@
 import React from 'react';
 import { AboutWrapper } from './About.style';
 import { HtmlTagWrapper, BodyTagWrapper, AnimationTextWrapper } from 'Components/Website.style';
-import reacticon from 'Assets/icons/react.png';
+import ReactIcon from 'Assets/icons/react.png';
+import NodeIcon from 'Assets/icons/node.png';
+import JsIcon from 'Assets/icons/js-icon.png';
+import CssIcon from 'Assets/icons/css.png';
 
 function About() {
     return (
@@ -12,14 +15,9 @@ function About() {
             <div className="html-tag-h1-start">{"<h1>"}</div>
             <AnimationTextWrapper>
                 <div className="intro anim-typewriter">
-                    <span className="blast">A</span>
-                    <span className="blast">b</span>
-                    <span className='blast'>o</span>
-                    <span className="blast">u</span>
-                    <span className="blast">t</span>
+                    {separateWords('About', 'word')}
                     &nbsp;
-                    <span className="blast">m</span>
-                    <span className="blast">e</span>
+                    {separateWords("me", 'word')}
                 </div>
             </AnimationTextWrapper>
             <div className="html-tag-h1-end">{"<h1/>"}</div>
@@ -45,12 +43,14 @@ function About() {
                 }
                 <div className="parent">
                     {
-                            <div className="image-position">
-                            <div className="image1" style={{ backgroundImage: `url(${reacticon})` }}>
-                            </div>
+                        <div className="image-position">
+                            <div className="common react" style={{ backgroundImage: `url(${ReactIcon})` }}></div>
+                            <div className="common js" style={{ backgroundImage: `url(${JsIcon})` }}></div>
+                            <div className="common node" style={{ backgroundImage: `url(${NodeIcon})` }}></div>
+                            <div className="common css" style={{ backgroundImage: `url(${CssIcon})` }}></div>
                         </div>
                     }
-                    <div className="profile" style={{ backgroundImage: `url(${reacticon})` }}>
+                    <div className="profile" style={{ backgroundImage: `url(${ReactIcon})` }}>
                     </div>
                 </div>
             </div>
@@ -61,3 +61,19 @@ function About() {
 }
 
 export default About;
+
+/*
+ *  COMMON FUNCTION FOR CREATE WORD & SINGLE CHARACTER ANIMATION
+ */
+const separateWords = (words, type = "single") => {
+
+    let text = (type === "single") ? words.split('') : words.split(' ');
+
+    let spans = undefined;
+
+    spans = text.map(item => {
+        return <span className="blast">{item}</span>
+    })
+
+    return spans;
+}

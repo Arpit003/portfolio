@@ -52,7 +52,7 @@ export const BREAKPOINTS = {
 //Fonts
 
 export const FONTS = {
-  PRIMARY         : "Rokkitt, serif",
+  PRIMARY         : "Roboto, sans-serif",
   // PRIMARY_BOLD    : "Gotham Bold",
   PRIMARY_LIGHT   : "Didact Gothic, sans-serif",
   // PRIMARY_MEDIUM  : "Gotham Medium",

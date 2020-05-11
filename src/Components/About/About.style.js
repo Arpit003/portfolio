@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FONTS, responsive } from 'Styles/Constants';
-import { BodyTagWrapper, HtmlTagWrapper } from 'Components/Website.style';
+import { BodyTagWrapper, HtmlTagWrapper, AnimationTextWrapper } from 'Components/Website.style';
 
 export const AboutWrapper = styled.div`
     color  : white;
@@ -24,6 +24,26 @@ export const AboutWrapper = styled.div`
         ${responsive.PHABLET`
             margin  : 20px 0 0 20px;
         `}
+    }
+
+    ${AnimationTextWrapper}{
+        .intro {
+            padding  : 0 0 0 20px;
+            margin   : 0 0 0 70px;
+            
+            ${responsive.LAPTOP`
+                margin  : 0 0 0 50px;
+            `}
+
+            ${responsive.TABLET`
+                margin   : 0 0 0 50px;
+            `}
+
+            ${responsive.MOBILE`
+                margin   : 0 0 0 30px;
+            `}
+        }
+
     }
         
     .html-tag-h1-start {
@@ -64,13 +84,6 @@ export const AboutWrapper = styled.div`
         color  : #08fdd8;
     }
 
-    .intro {
-
-        ${responsive.LAPTOP`
-            margin  : 0 0 0 50px;
-        `}
-    }
-
     .middle-section {
         display    : flex;
         flex-wrap  : wrap;
@@ -80,7 +93,7 @@ export const AboutWrapper = styled.div`
             width                : 40%;
             letter-spacing       : 1px;
             font-family          : ${FONTS.PRIMARY_LIGHT};
-            margin               : 0 0 0 70px;
+            margin               : 0 0 0 90px;
             animation            : fadeIn 3s;
             opacity              : 0;
             animation-delay      : 2s;
@@ -93,33 +106,32 @@ export const AboutWrapper = styled.div`
 
             ${responsive.LAPTOP`
                 width   : 30%;
-                margin  : 0 0 0 50px;
+                margin  : 0 0 0 70px;
             `};
             
             ${responsive.TABLET`
                 width   : 80%;
-                margin  : 0 0 0 50px;
+                margin  : 0 0 0 60px;
             `}
 
             ${responsive.PHABLET`
                 font-size  : 14px;
-                margin     : 0 0 0 50px;
                 width      : 90%;
             `}
 
             ${responsive.MOBILE`
                 font-size  : 12px;
-                margin     : 0 0 0 30px;
+                margin     : 0 0 0 50px;
             `}
         }
 
 
         /* CIRCLE LOGIC */
         .parent {
-            width          : 600px;
-            height         : 600px;
+            width          : 500px;
+            height         : 500px;
             border-radius  : 50%;
-            border         : 1px solid;
+            border         : dashed;
             animation      : rotation 30s infinite linear;
             margin         : -200px 0 0 80px;
 
@@ -158,9 +170,8 @@ export const AboutWrapper = styled.div`
         }
 
         .image-position {
-            transform   : translate(300%,20%);
-            width       : 150px;
-            height      : 150px;
+            width       : 125px;
+            height      : 125px;
 
             ${responsive.DESKTOP`
                 width   : 100px;
@@ -176,29 +187,43 @@ export const AboutWrapper = styled.div`
                 height  : 60px;
                 width   : 60px;
             `}
-            .image1 {
+            
+            .common {
                 width                : 100%;
                 height               : 100%;
                 border-radius        : 50%;
                 background-position  : center;
                 background-repeat    : no-repeat;
                 background-size      : cover;
+                animation            : rotate-reverse 30s infinite linear;
+                
+                &.react {
+                    transform            : translate(346%,143%);
+                }
+                &.node {
+                    transform            : translate(-43%,-48%);
+                    rotate               : -1deg;
+                }
+                &.css {
+                    transform            : translate(150%,-350%);
+                }
+                &.js {
+                    transform            : translate(144%,253%);
+                }
             }
         }
 
         .profile {
-            width                : 300px;
-            height               : 300px;
+            width                : 250px;
+            height               : 250px;
             background-color     : red;
             margin               : 0 auto;
             border-radius        : 50%;
-            rotate               : 360deg;
-            /* transform            : translate(0,-50%); */
             position             : relative;
-            /* top                  : 50%; */
             background-repeat    : no-repeat;
             background-size      :cover;
             background-position  :center;
+            animation            : profile 30s infinite linear;
 
             ${responsive.DESKTOP`
                 width   : 200px;
@@ -208,12 +233,22 @@ export const AboutWrapper = styled.div`
             ${responsive.TABLET`
                 width   : 150px;
                 height  : 150px;
-            `}
+            `};
 
             ${responsive.MOBILE`
                 width   : 120px;
                 height  : 120px;
-            `}
+            `};
+
+            @keyframes profile {
+                from {
+                    transform  : rotate(359deg);
+                }
+                to {
+                    transform  : rotate(0deg);
+                }
+            }
+
         }
     }
 

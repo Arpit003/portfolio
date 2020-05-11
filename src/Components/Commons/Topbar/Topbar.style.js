@@ -1,18 +1,37 @@
 import styled from "styled-components";
-import { responsive } from "Styles/Constants";
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 
-export const ToolbarWrapper = styled.div`
-    width             : 70px;
-    height            : 100%;
-    background-color  : #181818;
-    position          : absolute;
+export const AppBarWrapper = styled(AppBar)`
 
-    .icons {
-        width           : 40px;
-        margin          : 0 auto;
-        top             : 30%;
-        position        : relative;
+    &.primary {
+        background-color  : #181818;
+    }
 
+    &.root {
+        box-shadow  : none;
+    }
+
+    &.settings {
+        width   : ${props => props.isMobileView ? "100%" : "80px"};
+        height  : ${props => props.isMobileView ? "60px" : "100%"};
+        left    : 0;
+    }
+`;
+
+export const ToolbarWrapper = styled(Toolbar)`
+
+    &.regular {
+        top        : 50%;
+        transform  : translate(0,-50%);
+    }
+`;
+
+export const TopBarWrapper = styled.div`
+    margin : 0 0 0 auto;
+
+    .icons {    
         .icon {
             display         : flex;
             flex-direction  : column;
@@ -35,74 +54,65 @@ export const ToolbarWrapper = styled.div`
         }
     }
 
-    .menu { 
-        height    : 0;
-        width     : 0;
+    .menu-icon {
+        cursor  : pointer;
+        transition: .4s;
+
+        .menu-line {
+            width               : 30px;
+            height              : 2px;
+            background-color    : ${props => (props.topcolor || props.opendrawer) ? "#1179d6" : "#fff"};
+            margin              : 5px 0;
+            transition          : all 0.4s;
+        }
+
+        &.close-menu {
+            transform : rotate(180deg);
+            .second-line{
+                opacity  : 0;
+            }
+            .first-line{
+                transform: rotate(45deg) translate(4px,5px);
+            }
+            .last-line{
+                transform: rotate(-45deg) translate(5px,-6px);
+            }
+            
+        }
+    }
+`;
+
+export const DrawerWrapper = styled(SwipeableDrawer)`
+
+    .drawer{
+        width             : 100%;
+        height            : 60px;
+        margin            : 60px 0 0;
+        background-color  : #181818;
     }
 
-    ${responsive.PHABLET`
+    .icons { 
+        transform  : translate(0,50%);
 
-        width             : 100%;
-        height            : 70px;
-        position          : relative;
+        .icon {
+            display         : flex;
+            flex-direction  : row;
 
-        .icons {
-            width             : 100%;
-            position          : initial;  
-            padding           : ${props => props.isResponsive ? '70px 0 0' : '0'};
-            top               : 0%;
-            transition        : all 2s ease;
-            
-            .icon {
-                width             : 100%;
-                height            : 70px;
-                background-color  : #181818;
-                display           : flex;
-                flex-direction    : row;
-    
-                .icon-property {
-                    margin      : 0 auto;
-                    transition  : all 2s ease;
-                    width       : ${props => props.isResponsive ? '40px' : '0'};
+            .icon-property {
+                color     : grey;
+                width     : 30px;
+                height    : 30px;
+                margin    : 0 auto;
+
+                &.active {
+                    color   : #08fdd8;
+                }
+
+                &:hover {
+                    cursor  : pointer;
+                    color   : #08fdd8;
                 }
             }
         }
-
-        .menu {
-            position  : absolute;
-            color     : white;
-            height    : 30px;
-            width     : 30px;
-            right     : 5%;
-            margin    : 10px 0;
-
-            &:hover {
-                cursor  : pointer;
-                color   : #08fdd8;
-            }
-        }
-    `}
-
-    ${responsive.MOBILE`
-        .icons {
-
-            height  : 100px;
-            
-            .icon {
-                .icon-property {
-                    margin      : 0 auto;
-                    transition  : all 2s ease;
-                    width       : ${props => props.isResponsive ? '30px' : '0'};
-                    height      : 30px;
-                }
-            }   
-        }
-    `}
-`
-export const LinksWrapper = styled.div`
-`
-
-export const TopBarWrapper = styled.div`
-
-    
+    }
 `
