@@ -3,11 +3,21 @@ import { responsive, FONTS } from "Styles/Constants";
 
 export const ContentWrapper = styled.div`
 
-    margin  : 0 0 0 100px;
+    margin      : 0 0 0 100px;
+    height      : 90vh;
+    min-height  : 800px;
+
+    ${responsive.LAPTOP`
+        min-height  : 850px;
+    `}
 
     ${responsive.PHABLET`
-        margin  : 0;
-        padding : 80px 0 0;
+        margin      : 70px 0 0;
+        min-height  : 700px;
+    `}
+
+    ${responsive.MOBILE`
+        min-height  : 800px;
     `}
 `;
 
@@ -74,7 +84,7 @@ export const AnimationTextWrapper = styled.div`
         font-family     : ${FONTS.PRIMARY};
         width           : 610px;
         color           : #fff;
-        margin          : 0 0 0 90px;
+        padding         : 0 0 0 90px;
         border-right    : 2px solid rgba(255,255,255,.75);
         font-size       : 70px;
         white-space     : nowrap;
@@ -93,19 +103,24 @@ export const AnimationTextWrapper = styled.div`
            } 
         }
 
+        ${responsive.LAPTOP`
+            padding  : 0 0 0 70px;
+        `}
         ${responsive.TABLET`
             font-size  : 50px;
-            margin     : 0 0 0 50px;
+            padding    : 0 0 0 50px;
         `}
 
         ${responsive.PHABLET`
             font-size  : 40px;
-            margin     : 0 0 0 70px;
+            width      : 200px;
+            padding    : 0 0 0 70px;
         `}
 
         ${responsive.MOBILE`
             font-size  : 30px;
-            margin     : 0 0 0 50px;
+            width      : 150px;
+            padding    : 0 0 0 50px;
         `}
         
         /* Animation */
@@ -149,7 +164,7 @@ export const AnimationTextWrapper = styled.div`
                 }
     
             to { 
-                    width  : 670px;
+                    width  : 100%;
                     height : 100%;
                 }
         }

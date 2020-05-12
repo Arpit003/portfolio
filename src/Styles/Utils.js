@@ -17,6 +17,7 @@ export const UtilityStyles = createGlobalStyle`
         line-height         : 1.2;
         min-height          : 100vh;
         position            : relative;
+        overflow-x          : hidden;
     }
     .full-height{
         height: 100%;

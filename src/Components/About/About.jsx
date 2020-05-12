@@ -9,53 +9,60 @@ import CssIcon from 'Assets/icons/css.png';
 function About() {
     return (
         <AboutWrapper>
-            <HtmlTagWrapper>{"<html>"}</HtmlTagWrapper>
-            <BodyTagWrapper>{"<body>"}</BodyTagWrapper>
-
-            <div className="html-tag-h1-start">{"<h1>"}</div>
-            <AnimationTextWrapper>
-                <div className="intro anim-typewriter">
-                    {separateWords('About', 'word')}
+            <div className="start-tag">
+                <HtmlTagWrapper>{"<html>"}</HtmlTagWrapper>
+                <BodyTagWrapper>{"<body>"}</BodyTagWrapper>
+            </div>
+            <div className='container'>
+                <div className="html-tag-h1-start">{"<h1>"}</div>
+                <AnimationTextWrapper>
+                    <div className="intro anim-typewriter">
+                        {separateWords('About', 'word')}
                     &nbsp;
                     {separateWords("me", 'word')}
-                </div>
-            </AnimationTextWrapper>
-            <div className="html-tag-h1-end">{"<h1/>"}</div>
-            <div className="middle-section">
-                <p className="paragraph">
-                    <h3>
-                        {"Professionally connected with the web development industry and information technology for many years."}
-                    </h3>
-                    <h3>
-                        {"Well-organised person, problem solver with high attention to detail."}
-                    </h3>
-                    <h3>
-                        {"Interested in the entire frontend/backend spectrum and working on ambitious projects with positive people."}
-                    </h3>
-                </p>
-                {
-                    // <section id="pyramid">
-                    //     <div></div>
-                    //     <div></div>
-                    //     <div></div>
-                    //     <div></div>
-                    // </section>
-                }
-                <div className="parent">
+                    </div>
+                </AnimationTextWrapper>
+                <div className="html-tag-h1-end">{"<h1/>"}</div>
+                <div className="middle-section">
+                    <p className="paragraph">
+                        <h3>
+                            {"Professionally connected with the web development industry and information technology for many years."}
+                        </h3>
+                        <h3>
+                            {"Well-organised person, problem solver with high attention to detail."}
+                        </h3>
+                        <h3>
+                            {"Interested in the entire frontend/backend spectrum and working on ambitious projects with positive people."}
+                        </h3>
+                    </p>
                     {
-                        <div className="image-position">
-                            <div className="common react" style={{ backgroundImage: `url(${ReactIcon})` }}></div>
-                            <div className="common js" style={{ backgroundImage: `url(${JsIcon})` }}></div>
-                            <div className="common node" style={{ backgroundImage: `url(${NodeIcon})` }}></div>
-                            <div className="common css" style={{ backgroundImage: `url(${CssIcon})` }}></div>
-                        </div>
+                        // <section id="pyramid">
+                        //     <div></div>
+                        //     <div></div>
+                        //     <div></div>
+                        //     <div></div>
+                        // </section>
                     }
-                    <div className="profile" style={{ backgroundImage: `url(${ReactIcon})` }}>
+                    <div className="circle">
+                        <div className="parent">
+                            {
+                                <div className="image-position">
+                                    <div className="common react" style={{ backgroundImage: `url(${ReactIcon})` }}></div>
+                                    <div className="common js" style={{ backgroundImage: `url(${JsIcon})` }}></div>
+                                    <div className="common node" style={{ backgroundImage: `url(${NodeIcon})` }}></div>
+                                    <div className="common css" style={{ backgroundImage: `url(${CssIcon})` }}></div>
+                                </div>
+                            }
+                            <div className="profile" style={{ backgroundImage: `url(${ReactIcon})` }}>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <BodyTagWrapper>{"</body>"}</BodyTagWrapper>
-            <HtmlTagWrapper>{"</html>"}</HtmlTagWrapper>
+            <div className="end-tag">
+                <BodyTagWrapper>{"</body>"}</BodyTagWrapper>
+                <HtmlTagWrapper>{"</html>"}</HtmlTagWrapper>
+            </div>
         </AboutWrapper>
     )
 }

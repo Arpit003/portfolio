@@ -7,15 +7,18 @@ function User(props) {
 
     return (
         <HomeWrapper>
-            <HtmlTagWrapper>{"<html>"}</HtmlTagWrapper>
-            <BodyTagWrapper>{"<body>"}</BodyTagWrapper>
-
+            <div className="start-tag">
+                <HtmlTagWrapper>{"<html>"}</HtmlTagWrapper>
+                <BodyTagWrapper>{"<body>"}</BodyTagWrapper>
+            </div>
             {/* MAIN CONTAINER */}
             <div className="container">
 
                 {/* LEFT SIDE TEXT */}
                 <div className="left-side">
-                    <div className="html-tag-h1-start">{"<h1>"}</div>
+                    {
+                        <div className="html-tag-h1-start">{"<h1>"}</div>
+                    }
                     <AnimationTextWrapper>
 
                         {/* ANIMATION ON WORDS */}
@@ -32,7 +35,9 @@ function User(props) {
                             <br />
                         </div>
                     </AnimationTextWrapper>
-                    <div className="html-tag-h1-end">{"<h1/>"}</div>
+                    {
+                        <div className="html-tag-h1-end">{"<h1/>"}</div>
+                    }
                     <div className="stacks">Front End Developer / Back End Developer</div>
                     <Button variant="outlined" className="contact">CONTACT ME</Button>
                 </div>
@@ -63,9 +68,10 @@ function User(props) {
                     </div>
                 }
             </div>
-            <div className="end-tag" />
-            <BodyTagWrapper>{"</body>"}</BodyTagWrapper>
-            <HtmlTagWrapper>{"</html>"}</HtmlTagWrapper>
+            <div className="end-tag" >
+                <BodyTagWrapper>{"</body>"}</BodyTagWrapper>
+                <HtmlTagWrapper>{"</html>"}</HtmlTagWrapper>
+            </div>
         </HomeWrapper>
     )
 }

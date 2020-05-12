@@ -3,252 +3,247 @@ import { FONTS, responsive } from 'Styles/Constants';
 import { BodyTagWrapper, HtmlTagWrapper, AnimationTextWrapper } from 'Components/Website.style';
 
 export const AboutWrapper = styled.div`
-    color  : white;
-    overflow : hidden;
+    color     : white;
+    overflow  : hidden;
+    height    : 100%;
 
-    ${BodyTagWrapper}{
-        ${responsive.TABLET`
-            margin  : 30px 0 0 40px;
-        `}
+    .start-tag {
+        position  : absolute;
+    }   
 
-        ${responsive.PHABLET`
-            margin  : 20px 0 0 40px;
-        `}
-    }
-
-    ${HtmlTagWrapper}{
-        ${responsive.TABLET`
-            margin  : 30px 0 0 20px;
-        `}
-
-        ${responsive.PHABLET`
-            margin  : 20px 0 0 20px;
-        `}
-    }
-
-    ${AnimationTextWrapper}{
-        .intro {
-            padding  : 0 0 0 20px;
-            margin   : 0 0 0 70px;
-            
-            ${responsive.LAPTOP`
-                margin  : 0 0 0 50px;
-            `}
-
-            ${responsive.TABLET`
-                margin   : 0 0 0 50px;
-            `}
-
-            ${responsive.MOBILE`
-                margin   : 0 0 0 30px;
-            `}
-        }
-
-    }
-        
-    .html-tag-h1-start {
-        font-family  : ${FONTS.PRIMARY_ITALIC};
-        font-size    : 18px;
-        margin       : 130px 0 0 70px;
-        color        : #4b4b4b;
-
-        ${responsive.LAPTOP`
-            margin  : 130px 0 0  40px;
-        `}
-        ${responsive.TABLET`
-            margin  : 10px 0 0 50px;        
-        `}
-
-    }
-
-    .html-tag-h1-end {
-        font-family  : ${FONTS.PRIMARY_ITALIC};
-        font-size    : 18px;
-        margin       : 10px 0 0 70px;
-        color        : #4b4b4b;
-
-        ${responsive.LAPTOP`
-            margin  : 10px 0 0  40px;
-        `}
-
-        ${responsive.PHABLET`
-            margin  : 10px 0 0 50px;        
-        `}
-
-        ${responsive.MOBILE`
-            margin  : 10px 0 0 40px;        
-        `}
+    .end-tag {
+        position  : absolute;
+        bottom    : 20px;
     }
 
     .blast {
         color  : #08fdd8;
     }
 
-    .middle-section {
-        display    : flex;
-        flex-wrap  : wrap;
+    .container {
+        top        : 50%;
+        position   : absolute;
+        transform  : translate(0,-50%);
 
-        .paragraph {
-            flex-direction       : row;
-            width                : 40%;
-            letter-spacing       : 1px;
-            font-family          : ${FONTS.PRIMARY_LIGHT};
-            margin               : 0 0 0 90px;
-            animation            : fadeIn 3s;
-            opacity              : 0;
-            animation-delay      : 2s;
-            animation-fill-mode  : forwards;
+        ${responsive.TABLET`
+            top  : 60%;
+        `}
 
-            @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
-            }
+        ${responsive.MOBILE`
+            top  : 50%;
+        `}
 
-            ${responsive.LAPTOP`
-                width   : 30%;
-                margin  : 0 0 0 70px;
-            `};
-            
+        .html-tag-h1-start {
+            font-family  : ${FONTS.PRIMARY_ITALIC};
+            font-size    : 18px;
+            padding      : 30px 0 0 70px;
+            color        : #4b4b4b;
+
             ${responsive.TABLET`
-                width   : 80%;
-                margin  : 0 0 0 60px;
+                padding  : 0 0 0 40px;
             `}
-
             ${responsive.PHABLET`
-                font-size  : 14px;
-                width      : 90%;
+                padding  : 0 0 0 50px;        
             `}
 
             ${responsive.MOBILE`
-                font-size  : 12px;
-                margin     : 0 0 0 50px;
+                padding  : 0 0 0 40px;        
             `}
         }
 
-
-        /* CIRCLE LOGIC */
-        .parent {
-            width          : 500px;
-            height         : 500px;
-            border-radius  : 50%;
-            border         : dashed;
-            animation      : rotation 30s infinite linear;
-            margin         : -200px 0 0 80px;
-
-            ${responsive.DESKTOP`
-                width   : 400px;
-                height  : 400px;
-                margin  : -100px 0 0 150px;
-            `}
-            
-            ${responsive.DESKTOP`
-                margin  : -100px 0 0 100px;
-            `}
+        .html-tag-h1-end {
+            font-family  : ${FONTS.PRIMARY_ITALIC};
+            font-size    : 18px;
+            padding      : 10px 0 0 70px;
+            color        : #4b4b4b;
 
             ${responsive.TABLET`
-                width   : 300px;
-                height  : 300px;
-                margin  : 10px 0 0 90px;
+                padding  : 10px 0 0 40px;        
             `}
 
             ${responsive.PHABLET`
-                margin  : 30px auto 0;
+                padding  : 10px 0 0 50px;        
             `}
 
             ${responsive.MOBILE`
-                width   : 240px;
-                height  : 240px;
+                padding  : 10px 0 0 40px;        
             `}
-
-        @keyframes rotation {
-            from {
-                transform  : rotate(0deg);
-            }
-            to {
-                transform  : rotate(359deg);
-            }
         }
+        .middle-section {
+            display    : flex;
+            flex-wrap  : wrap;
 
-        .image-position {
-            width       : 125px;
-            height      : 125px;
+            .paragraph {
+                flex-direction       : row;
+                width                : 40%;
+                letter-spacing       : 1px;
+                font-family          : ${FONTS.PRIMARY_LIGHT};
+                margin               : 0 0 0 90px;
+                animation            : fadeIn 3s;
+                opacity              : 0;
+                animation-delay      : 2s;
+                animation-fill-mode  : forwards;
 
-            ${responsive.DESKTOP`
-                width   : 100px;
-                height  : 100px;
-            `}
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
 
-            ${responsive.TABLET`
-                height  : 75px;
-                width   : 75px;
-            `}
-
-            ${responsive.MOBILE`
-                height  : 60px;
-                width   : 60px;
-            `}
-            
-            .common {
-                width                : 100%;
-                height               : 100%;
-                border-radius        : 50%;
-                background-position  : center;
-                background-repeat    : no-repeat;
-                background-size      : cover;
-                animation            : rotate-reverse 30s infinite linear;
+                ${responsive.LAPTOP`
+                    width   : 30%;
+                    margin  : 0 0 0 70px;
+                `};
                 
-                &.react {
-                    transform            : translate(346%,143%);
-                }
-                &.node {
-                    transform            : translate(-43%,-48%);
-                    rotate               : -1deg;
-                }
-                &.css {
-                    transform            : translate(150%,-350%);
-                }
-                &.js {
-                    transform            : translate(144%,253%);
-                }
-            }
-        }
+                ${responsive.TABLET`
+                    width   : 80%;
+                    margin  : 0 0 0 60px;
+                `}
 
-        .profile {
-            width                : 250px;
-            height               : 250px;
-            background-color     : red;
-            margin               : 0 auto;
-            border-radius        : 50%;
-            position             : relative;
-            background-repeat    : no-repeat;
-            background-size      :cover;
-            background-position  :center;
-            animation            : profile 30s infinite linear;
+                ${responsive.PHABLET`
+                    font-size  : 14px;
+                    width      : 90%;
+                `}
 
-            ${responsive.DESKTOP`
-                width   : 200px;
-                height  : 200px;
-            `}
-
-            ${responsive.TABLET`
-                width   : 150px;
-                height  : 150px;
-            `};
-
-            ${responsive.MOBILE`
-                width   : 120px;
-                height  : 120px;
-            `};
-
-            @keyframes profile {
-                from {
-                    transform  : rotate(359deg);
-                }
-                to {
-                    transform  : rotate(0deg);
-                }
+                ${responsive.MOBILE`
+                    font-size  : 12px;
+                    margin     : 0 0 0 50px;
+                `}
             }
 
+
+            /* CIRCLE LOGIC */
+            .circle {
+                margin    : 0 auto;
+
+                ${responsive.PHABLET`
+                    width     : 100%;
+                    overflow  : hidden;
+                    padding   : 0 0 20px 0;
+                `}                
+                .parent {
+                    width          : 500px;
+                    height         : 500px;
+                    border-radius  : 50%;
+                    border         : dashed;
+                    animation      : rotation 30s infinite linear;
+                    margin         : -200px 0 0 80px;
+
+                    ${responsive.DESKTOP`
+                        width   : 400px;
+                        height  : 400px;
+                        margin  : -100px 0 0 150px;
+                    `}
+                    
+                    ${responsive.DESKTOP`
+                        margin  : -100px 0 0 100px;
+                    `}
+
+                    ${responsive.TABLET`
+                        width   : 300px;
+                        height  : 300px;
+                        margin  : 10px 0 0 90px;
+                    `}
+
+                    ${responsive.PHABLET`
+                        margin  : 30px auto 0;
+                    `}
+
+                    ${responsive.MOBILE`
+                        width   : 240px;
+                        height  : 240px;
+                    `}
+
+                @keyframes rotation {
+                    from {
+                        transform  : rotate(0deg);
+                    }
+                    to {
+                        transform  : rotate(359deg);
+                    }
+                }
+
+                .image-position {
+                    width       : 125px;
+                    height      : 125px;
+
+                    ${responsive.DESKTOP`
+                        width   : 100px;
+                        height  : 100px;
+                    `}
+
+                    ${responsive.TABLET`
+                        height  : 75px;
+                        width   : 75px;
+                    `}
+
+                    ${responsive.MOBILE`
+                        height  : 60px;
+                        width   : 60px;
+                    `}
+                    
+                    .common {
+                        width                : 100%;
+                        height               : 100%;
+                        border-radius        : 50%;
+                        background-position  : center;
+                        background-repeat    : no-repeat;
+                        background-size      : cover;
+                        animation            : rotate-reverse 30s infinite linear;
+                        
+                        &.react {
+                            transform            : translate(346%,143%);
+                        }
+                        &.node {
+                            transform            : translate(-43%,-48%);
+                            rotate               : -1deg;
+                        }
+                        &.css {
+                            transform            : translate(150%,-350%);
+                        }
+                        &.js {
+                            transform            : translate(144%,253%);
+                        }
+                    }
+                }
+
+                .profile {
+                    width                : 250px;
+                    height               : 250px;
+                    background-color     : red;
+                    margin               : 0 auto;
+                    border-radius        : 50%;
+                    position             : relative;
+                    background-repeat    : no-repeat;
+                    background-size      :cover;
+                    background-position  :center;
+                    animation            : profile 30s infinite linear;
+
+                    ${responsive.DESKTOP`
+                        width   : 200px;
+                        height  : 200px;
+                    `}
+
+                    ${responsive.TABLET`
+                        width   : 150px;
+                        height  : 150px;
+                    `};
+
+                    ${responsive.MOBILE`
+                        width   : 120px;
+                        height  : 120px;
+                    `};
+
+                    @keyframes profile {
+                        from {
+                            transform  : rotate(359deg);
+                        }
+                        to {
+                            transform  : rotate(0deg);
+                        }
+                    }
+
+                }
+            }
         }
     }
 

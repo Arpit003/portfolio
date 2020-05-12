@@ -8,49 +8,58 @@ export const colors = "#4d4d4e";
 export const HomeWrapper = styled.div`
 
     overflow  : hidden;
+    height    : 100%;
 
-    .html-tag-h1-start {
-        font-family  : ${FONTS.PRIMARY_ITALIC};
-        font-size    : 18px;
-        margin       : 130px 0 0 70px;
-        color        : #4b4b4b;
-
-        ${responsive.TABLET`
-            margin  : 130px 0 0 40px;
-        `}
-        ${responsive.PHABLET`
-            margin  : 50px 0 0 50px;        
-        `}
-
-        ${responsive.MOBILE`
-            margin  : 30px 0 0 40px;        
-        `}
-    }
-
-    .html-tag-h1-end {
-        font-family  : ${FONTS.PRIMARY_ITALIC};
-        font-size    : 18px;
-        margin       : 10px 0 0 70px;
-        color        : #4b4b4b;
-
-        ${responsive.TABLET`
-            margin  : 10px 0 0 40px;        
-        `}
-
-        ${responsive.PHABLET`
-            margin  : 10px 0 0 50px;        
-        `}
-
-        ${responsive.MOBILE`
-            margin  : 10px 0 0 40px;        
-        `}
+    .start-tag {
+        position  : absolute;
     }
 
     .container {
-        display  : flex;
+        display    : flex;
+        position   : absolute;
+        top        : 50%;
+        transform  : translate(0,-50%);
 
         .left-side {
-            width  : 60%;
+            width  : 100%;
+
+            .html-tag-h1-start {
+                font-family  : ${FONTS.PRIMARY_ITALIC};
+                font-size    : 18px;
+                padding      : 30px 0 0 70px;
+                color        : #4b4b4b;
+
+                ${responsive.TABLET`
+                    padding  : 0 0 0 40px;
+                `}
+                ${responsive.PHABLET`
+                    padding  : 0 0 0 50px;        
+                `}
+
+                ${responsive.MOBILE`
+                    padding  : 0 0 0 40px;        
+                `}
+            }
+
+            .html-tag-h1-end {
+                font-family  : ${FONTS.PRIMARY_ITALIC};
+                font-size    : 18px;
+                padding      : 10px 0 0 70px;
+                color        : #4b4b4b;
+
+                ${responsive.TABLET`
+                    padding  : 10px 0 0 40px;        
+                `}
+
+                ${responsive.PHABLET`
+                    padding  : 10px 0 0 50px;        
+                `}
+
+                ${responsive.MOBILE`
+                    padding  : 10px 0 0 40px;        
+                `}
+            }
+    
             .stacks {
                 font-family     : ${FONTS.PRIMARY_LIGHT};
                 color           : #858585;
@@ -143,30 +152,32 @@ export const HomeWrapper = styled.div`
 
                 svg {
                     position   : absolute;
-                    width      : 30%;
+                    width      : 60%;
                     height     : 100%;
-                    transform  : translate(0,-25%);
+                    top        : 50%;
+                    transform  : translate(0,-50%);
                     /* rotate     : -18deg; */
                     overflow   : hidden;
 
                     ${responsive.LAPTOP`
-                        width  : 47%;
+                        width      : 55%;
+                        transform  : translate(-30%,-50%);
                     `}
 
                     ${responsive.TABLET`
                         width      : 50%;
                         opacity    : 0.5;
-                        transform  : translate(0,-37%);
+                        transform  : translate(-50%,-75%);
                     `}
 
                     ${responsive.PHABLET`
                         width      : 60%;
-                        transform  : translate(-40px,-51%)
+                        transform  : translate(-30%,-70%);
                     `}
 
                     ${responsive.MOBILE`
-                        width      : 70%;
-                        transform  : translate(20px,-57%);
+                        width      : 70%
+                        transform  : translate(-50%,-70%);
                         overflow   : hidden;
                     `}
                 }
@@ -193,15 +204,8 @@ export const HomeWrapper = styled.div`
     } 
 
     .end-tag {
-        margin  : 100px 0 0;
-
-        ${responsive.PHABLET`
-            margin  : 10px 0 0;
-        `}
-        
-        ${responsive.MOBILE`
-            margin  : 10px 0 0;
-        `}
+        position   : absolute;
+        bottom     : 30px;
     }
     
 `
