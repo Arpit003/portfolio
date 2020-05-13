@@ -14,8 +14,8 @@ export const AppBarWrapper = styled(AppBar)`
     }
 
     &.settings {
-        width   : ${props => props.isMobileView ? "100%" : "80px"};
-        height  : ${props => props.isMobileView ? "60px" : "100%"};
+        width   : ${props => props.ismobile ? "100%" : "80px"};
+        height  : ${props => props.ismobile ? "60px" : "100%"};
         left    : 0;
     }
 `;

@@ -5,6 +5,7 @@ import ReactIcon from 'Assets/icons/react.png';
 import NodeIcon from 'Assets/icons/node.png';
 import JsIcon from 'Assets/icons/js-icon.png';
 import CssIcon from 'Assets/icons/css.png';
+import MiddleIcon from 'Assets/icons/middle.jpg';
 
 function About() {
     return (
@@ -24,7 +25,7 @@ function About() {
                 </AnimationTextWrapper>
                 <div className="html-tag-h1-end">{"<h1/>"}</div>
                 <div className="middle-section">
-                    <p className="paragraph">
+                    <div className="paragraph">
                         <h3>
                             {"Professionally connected with the web development industry and information technology for many years."}
                         </h3>
@@ -34,7 +35,7 @@ function About() {
                         <h3>
                             {"Interested in the entire frontend/backend spectrum and working on ambitious projects with positive people."}
                         </h3>
-                    </p>
+                    </div>
                     {
                         // <section id="pyramid">
                         //     <div></div>
@@ -53,7 +54,7 @@ function About() {
                                     <div className="common css" style={{ backgroundImage: `url(${CssIcon})` }}></div>
                                 </div>
                             }
-                            <div className="profile" style={{ backgroundImage: `url(${ReactIcon})` }}>
+                            <div className="profile" style={{ backgroundImage: `url(${MiddleIcon})` }}>
                             </div>
                         </div>
                     </div>
@@ -78,8 +79,8 @@ const separateWords = (words, type = "single") => {
 
     let spans = undefined;
 
-    spans = text.map(item => {
-        return <span className="blast">{item}</span>
+    spans = text.map((item, index) => {
+        return <span className="blast" key={index}>{item}</span>
     })
 
     return spans;

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { FONTS, responsive } from 'Styles/Constants';
-import { BodyTagWrapper, HtmlTagWrapper, AnimationTextWrapper } from 'Components/Website.style';
 
 export const AboutWrapper = styled.div`
     color     : white;
@@ -79,14 +78,23 @@ export const AboutWrapper = styled.div`
                 letter-spacing       : 1px;
                 font-family          : ${FONTS.PRIMARY_LIGHT};
                 margin               : 0 0 0 90px;
-                animation            : fadeIn 3s;
+                animation-name       : fadeInUp;
                 opacity              : 0;
-                animation-delay      : 2s;
-                animation-fill-mode  : forwards;
+                animation-duration   : 3s;
+                animation-fill-mode  : both;
 
-                @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
+                @keyframes fadeInUp {
+                    from {
+                        opacity    : 0;
+                        transform  : translate3d(0,40px,0)
+                    }
+                    50% {
+                        opacity  : 0.5;
+                    }
+                    to {
+                        transform  : translate3d(0,0,0);
+                        opacity    : 1;
+                    }
                 }
 
                 ${responsive.LAPTOP`
@@ -115,6 +123,22 @@ export const AboutWrapper = styled.div`
             .circle {
                 margin    : 0 auto;
 
+                animation-name       : fadeInUp;
+                opacity              : 0;
+                animation-duration   : 6s;
+                animation-fill-mode  : both;
+
+                @keyframes fadeInUp {
+                    from {
+                        transform: translate3d(0,100px,0)
+                    }
+
+                    to {
+                        transform: translate3d(0,0,0);
+                        opacity: 1
+                    }
+                }
+        
                 ${responsive.PHABLET`
                     width     : 100%;
                     overflow  : hidden;

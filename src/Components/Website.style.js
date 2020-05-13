@@ -6,7 +6,7 @@ export const ContentWrapper = styled.div`
     margin      : 0 0 0 100px;
     height      : 90vh;
     min-height  : 800px;
-
+    
     ${responsive.LAPTOP`
         min-height  : 850px;
     `}
@@ -17,7 +17,7 @@ export const ContentWrapper = styled.div`
     `}
 
     ${responsive.MOBILE`
-        min-height  : 800px;
+        min-height  : ${props => props.minHeight ? props.minHeight : "470px"};
     `}
 `;
 
@@ -101,6 +101,29 @@ export const AnimationTextWrapper = styled.div`
                color           : #08f6d2;
                cursor          : default;
            } 
+
+           &.rotate-word {
+                animation-name             : rotateWord ;
+                animation-duration         : 5s;
+                animation-fill-mode        : initial;
+                color                      : #08f6d2;
+
+               @keyframes rotateWord {
+                   from {
+                       rotate  : 360deg;
+                   }
+                   to {
+                        rotate  : 0;
+                   }
+               }
+
+               &:hover {
+                    animation-duration  : 1s;
+                    animation-name      : rubberBand;
+                    color               : #08f6d2;
+                    cursor              : default;
+               }
+           }
         }
 
         ${responsive.LAPTOP`
@@ -159,8 +182,8 @@ export const AnimationTextWrapper = styled.div`
         }
         @keyframes typewriter{
             from { 
-                    width: 0;
-                    height : 10px;
+                    width  : 0;
+                    height : 100%;
                 }
     
             to { 

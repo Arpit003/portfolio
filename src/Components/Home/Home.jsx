@@ -27,7 +27,8 @@ function User(props) {
                             <br />
                             {separateWords("I'm")}
                             &nbsp;
-                            {separateWords("Arpit,")}
+                            {separateWords("A", "single", "rotate-word")}
+                            {separateWords("rpit,")}
                             <br />
                             {separateWords("FullStack")}
                             &nbsp;
@@ -47,14 +48,14 @@ function User(props) {
                         <div className="image-logo">
                             <svg viewBox="0 0 10px 10px">
                                 <symbol id="s-text">
-                                    <text text-anchor="middle"
+                                    <text textAnchor="middle"
                                         x="50%"
                                         y="35%"
                                         style={{ transform: "translate(0,50%)" }}
                                         className="text-line"
                                     >A</text>
                                 </symbol>
-                                <g class="g-ants">
+                                <g className="g-ants">
 
                                     <use xlinkHref="#s-text" className="text-copy" />
                                     <use xlinkHref="#s-text" className="text-copy" />
@@ -81,14 +82,14 @@ export default User;
 /*
  *  COMMON FUNCTION FOR CREATE WORD & SINGLE CHARACTER ANIMATION
  */
-const separateWords = (words, type = "single") => {
+const separateWords = (words, type = "single", className = "") => {
 
     let text = (type === "single") ? words.split('') : words.split(' ');
 
     let spans = undefined;
 
-    spans = text.map(item => {
-        return <span className="blast">{item}</span>
+    spans = text.map((item, index) => {
+        return <span className={`blast ${className}`} key={index}>{item}</span>
     })
 
     return spans;

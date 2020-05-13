@@ -1,11 +1,26 @@
 import React from 'react';
 import { ContactWrapper } from './Contact.style';
 import { BodyTagWrapper, HtmlTagWrapper, AnimationTextWrapper } from 'Components/Website.style';
-import { TextField, FormControl, FormLabel } from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 import { Formik, Form } from 'formik';
+// Yup for creating validation schema
+import * as Yup from "yup";
+
 
 const initial_values = { name: '', email: '', subject: '', message: '' }
+
+// Validation Schema for contact us form
+const validationSchema = Yup.object({
+    name: Yup.string()
+        .required("Please enter your name."),
+    email: Yup.string()
+        .required("Please enter your email"),
+    subject: Yup.string()
+        .required("Please confirm your subject"),
+    message: Yup.string()
+        .required("Please confirm your message"),
+})
 
 
 function Contact(props) {
@@ -45,6 +60,7 @@ function Contact(props) {
                 <Formik
                     initialValues={initial_values}
                     onSubmit={handleSubmit}
+                    validationSchema={validationSchema}
                 >
                     {props => <ContactForm {...props} />}
                 </Formik>
@@ -100,7 +116,7 @@ const ContactForm = ({
     handleSubmit,
     isValid
 }) => (
-        <Form>
+        <Form className="form">
             <TextField
                 id="name"
                 label="Name"
@@ -111,20 +127,98 @@ const ContactForm = ({
                 onBlur={handleBlur}
                 error={touched.name && Boolean(errors.name)}
                 className="inline-field"
-                disableUnderline={false}
                 InputProps={{
-                    // className: `change-password-input ${touched.current_password && errors.current_password && "input-error"}`,
                     classes: {
-                        // input: "modal-input",
-                        // notchedOutline: "input-fieldset",
-                        underline: "underline-color"
+                        root: "root",
+                        input: "input-color",
+                        underline: `underline-color ${(touched.name && errors.name) && "input-error"}`,
                     }
                 }}
                 InputLabelProps={{
                     classes: {
-                        outlined: `${(!touched.name || errors.name) && "label"}`
+                        focused: 'focused',
+                        filled: 'label-filled'
                     }
                 }}
             />
+            <TextField
+                id="email"
+                label="Email"
+                variant="filled"
+                type="text"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.email && Boolean(errors.email)}
+                className="inline-field"
+                InputProps={{
+                    classes: {
+                        root: "root",
+                        input: "input-color",
+                        underline: `underline-color ${(touched.email && errors.email) && "input-error"}`,
+                    }
+                }}
+                InputLabelProps={{
+                    classes: {
+                        focused: 'focused',
+                        filled: 'label-filled'
+                    }
+                }}
+            />
+
+            <TextField
+                id="subject"
+                label="Subject"
+                variant="filled"
+                type="text"
+                value={values.subject}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.subject && Boolean(errors.subject)}
+                className="full-width-field"
+                // fullWidth
+                InputProps={{
+                    classes: {
+                        root: "root",
+                        input: "input-color",
+                        underline: `underline-color ${(touched.subject && errors.subject) && "input-error"}`,
+                    }
+                }}
+                InputLabelProps={{
+                    classes: {
+                        focused: 'focused',
+                        filled: 'label-filled'
+                    }
+                }}
+            />
+
+            <TextField
+                id="message"
+                label="Message"
+                variant="filled"
+                multiline
+                rows={4}
+                value={values.message}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.message && Boolean(errors.message)}
+                className="full-width-field"
+                fullWidth
+                InputProps={{
+                    classes: {
+                        root: "root",
+                        input: "input-color",
+                        underline: `underline-color ${(touched.message && errors.message) && "input-error"}`,
+                    }
+                }}
+                InputLabelProps={{
+                    classes: {
+                        focused: 'focused',
+                        filled: 'label-filled'
+                    }
+                }}
+            />
+
+            <Button variant="outlined" className="send">SEND</Button>
         </Form>
     )

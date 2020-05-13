@@ -29,6 +29,21 @@ export const HomeWrapper = styled.div`
                 padding      : 30px 0 0 70px;
                 color        : #4b4b4b;
 
+                animation            : fadeIn 1s;
+                opacity              : 0;
+                animation-delay      : 1s;
+                animation-fill-mode  : forwards;
+
+                &:hover {
+                    cursor  : default;
+                }
+
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+
+
                 ${responsive.TABLET`
                     padding  : 0 0 0 40px;
                 `}
@@ -46,6 +61,21 @@ export const HomeWrapper = styled.div`
                 font-size    : 18px;
                 padding      : 10px 0 0 70px;
                 color        : #4b4b4b;
+
+                animation            : fadeIn 1s;
+                opacity              : 0;
+                animation-delay      : 1s;
+                animation-fill-mode  : forwards;
+
+                &:hover {
+                    cursor  : default;
+                }
+
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+
 
                 ${responsive.TABLET`
                     padding  : 10px 0 0 40px;        
@@ -66,20 +96,26 @@ export const HomeWrapper = styled.div`
                 margin          : 20px 0 0 90px;
                 letter-spacing  : 5px;
 
-                animation            : fadeIn 1s;
+                animation-name       : fadeInUp;
                 opacity              : 0;
-                animation-delay      : 1s;
-                animation-fill-mode  : forwards;
+                animation-duration   : 3s;
+                animation-fill-mode  : both;
+
+                @keyframes fadeInUp {
+                    from {
+                        transform: translate3d(0,100px,0)
+                    }
+
+                    to {
+                        transform: translate3d(0,0,0);
+                        opacity: 1
+                    }
+                }
 
                 &:hover {
                     cursor  : default;
                 }
-
-                @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                }
-
+                
                 ${responsive.TABLET`
                     margin  : 20px 0 0 50px;
                 `}
@@ -107,14 +143,20 @@ export const HomeWrapper = styled.div`
                     cursor            : default;
                 }
 
-                animation            : fadeIn 1s;
+                animation-name       : fadeInUp;
                 opacity              : 0;
-                animation-delay      : 1s;
-                animation-fill-mode  : forwards;
-            
-                @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
+                animation-duration   : 3s;
+                animation-fill-mode  : both;
+
+                @keyframes fadeInUp {
+                    from {
+                        transform: translate3d(0,100px,0)
+                    }
+
+                    to {
+                        transform: translate3d(0,0,0);
+                        opacity: 1
+                    }
                 }
             
                 ${responsive.TABLET`
@@ -137,17 +179,17 @@ export const HomeWrapper = styled.div`
                 
                 ${responsive.TABLET`
                     font    : 25em/1 ${FONTS.PRIMARY};
-                    height  : 500px;
+                    height  : 0;
                 `}
 
                 ${responsive.PHABLET`
                     font    : 22em/1 ${FONTS.PRIMARY};
-                    height  : 400px;
+                    // height  : 400px;
                 `}
 
                 ${responsive.MOBILE`
                     font    : 20em/1 ${FONTS.PRIMARY};
-                    height  : 360px;
+                    height  :0px;
                 `}
 
                 svg {
@@ -155,19 +197,19 @@ export const HomeWrapper = styled.div`
                     width      : 60%;
                     height     : 100%;
                     top        : 50%;
-                    transform  : translate(0,-50%);
+                    transform  : translate(0,-65%);
                     /* rotate     : -18deg; */
                     overflow   : hidden;
 
                     ${responsive.LAPTOP`
                         width      : 55%;
-                        transform  : translate(-30%,-50%);
+                        transform  : translate(-30%,-65%);
                     `}
 
                     ${responsive.TABLET`
                         width      : 50%;
                         opacity    : 0.5;
-                        transform  : translate(-50%,-75%);
+                        transform  : translate(-50%,-50%);
                     `}
 
                     ${responsive.PHABLET`
@@ -177,7 +219,7 @@ export const HomeWrapper = styled.div`
 
                     ${responsive.MOBILE`
                         width      : 70%
-                        transform  : translate(-50%,-70%);
+                        transform  : translate(-50%,-53%);
                         overflow   : hidden;
                     `}
                 }
@@ -188,7 +230,7 @@ export const HomeWrapper = styled.div`
                     stroke-dasharray: ${strokeStep}% 360%;
                     stroke-width: 3px;
                     
-                    animation: stroke-offset 2s linear;
+                    animation: stroke-offset 5s linear;
                 
                     ${createCSS(colors)}
                 }

@@ -1,114 +1,104 @@
 import styled from 'styled-components';
 import { FONTS, responsive } from 'Styles/Constants';
-import { BodyTagWrapper, HtmlTagWrapper, AnimationTextWrapper } from 'Components/Website.style';
 
 export const SkillsWrapper = styled.div`
+    color     : white;
     overflow  : hidden;
-    color     : #fff;
+    height    : 100%;
 
-    ${BodyTagWrapper}{
-        ${responsive.TABLET`
-            margin  : 30px 0 0 40px;
-        `}
+    .start-tag {
+        position  : absolute;
+    }   
 
-        ${responsive.PHABLET`
-            margin  : 20px 0 0 40px;
-        `}
-
-        ${responsive.MOBILE`
-            margin  : 20px 0 0 30px;
-        `}
-    }
-
-    ${HtmlTagWrapper}{
-        ${responsive.TABLET`
-            margin  : 30px 0 0 20px;
-        `}
-
-        ${responsive.PHABLET`
-            margin  : 20px 0 0 20px;
-        `}
-    }
-
-    ${AnimationTextWrapper}{
-        .intro {
-            padding  : 0 0 0 20px;
-            margin   : 0 0 0 70px;
-            
-            ${responsive.LAPTOP`
-                margin   : 0 0 0 50px;
-            `}
-
-            ${responsive.MOBILE`
-                margin   : 0 0 0 30px;
-            `}
-        }
-
+    .end-tag {
+        position  : absolute;
+        bottom    : 20px;
     }
 
     .blast {
         color  : #08fdd8;
     }
+
     .container {
-        display  : flex;
-    
-        .left-side {
-            width  : 60%;
+        top        : 50%;
+        position   : absolute;
+        transform  : translate(0,-50%);
 
-            .html-tag-h1-start {
-                font-family  : ${FONTS.PRIMARY_ITALIC};
-                font-size    : 18px;
-                margin       : 50px 0 0 70px;
-                color        : #4b4b4b;
+        ${responsive.TABLET`
+            top  : 60%;
+        `}
 
-                ${responsive.LAPTOP`
-                    margin  : 20px 0 0  40px;
-                `}
-                ${responsive.TABLET`
-                    margin  : 10px 0 0 50px;        
-                `}
-                ${responsive.MOBILE`
-                    margin  : 10px 0 0 40px;
-                `}
-            }
+        ${responsive.MOBILE`
+            top  : 50%;
+        `}
 
-            .html-tag-h1-end {
-                font-family  : ${FONTS.PRIMARY_ITALIC};
-                font-size    : 18px;
-                margin       : 10px 0 0 70px;
-                color        : #4b4b4b;
+        .html-tag-h1-start {
+            font-family  : ${FONTS.PRIMARY_ITALIC};
+            font-size    : 18px;
+            padding      : 30px 0 0 70px;
+            color        : #4b4b4b;
 
-                ${responsive.LAPTOP`
-                    margin  : 10px 0 0  40px;
-                `}
+            ${responsive.TABLET`
+                padding  : 0 0 0 40px;
+            `}
+            ${responsive.PHABLET`
+                padding  : 0 0 0 50px;        
+            `}
 
-                ${responsive.PHABLET`
-                    margin  : 10px 0 0 50px;        
-                `}
+            ${responsive.MOBILE`
+                padding  : 0 0 0 40px;        
+            `}
+        }
 
-                ${responsive.MOBILE`
-                    margin  : 10px 0 0 40px;        
-                `}
-            }
+        .html-tag-h1-end {
+            font-family  : ${FONTS.PRIMARY_ITALIC};
+            font-size    : 18px;
+            padding      : 10px 0 0 70px;
+            color        : #4b4b4b;
+
+            ${responsive.TABLET`
+                padding  : 10px 0 0 40px;        
+            `}
+
+            ${responsive.PHABLET`
+                padding  : 10px 0 0 50px;        
+            `}
+
+            ${responsive.MOBILE`
+                padding  : 10px 0 0 40px;        
+            `}
+        }
+        .middle-section {
+            display    : flex;
+            /* flex-wrap  : wrap; */
 
             .paragraph {
                 flex-direction       : row;
-                width                : 80%;
+                width                : 40%;
                 letter-spacing       : 1px;
                 font-family          : ${FONTS.PRIMARY_LIGHT};
                 margin               : 0 0 0 90px;
-                animation            : fadeIn 3s;
+                animation-name       : fadeInUp;
                 opacity              : 0;
-                animation-delay      : 2s;
-                animation-fill-mode  : forwards;
+                animation-duration   : 3s;
+                animation-fill-mode  : both;
 
-                @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
+                @keyframes fadeInUp {
+                    from {
+                        opacity    : 0;
+                        transform  : translate3d(0,40px,0)
+                    }
+                    50% {
+                        opacity  : 0.5;
+                    }
+                    to {
+                        transform  : translate3d(0,0,0);
+                        opacity    : 1;
+                    }
                 }
 
                 ${responsive.LAPTOP`
-                    width   : 80%;
+                    width   : 30%;
                     margin  : 0 0 0 70px;
                 `};
                 
@@ -127,17 +117,71 @@ export const SkillsWrapper = styled.div`
                     margin     : 0 0 0 50px;
                 `}
             }
-        }
 
-        .right-side {
-            width  : 40%;
+            .main-container {
+                /* width    : 50%; */
+                transform  : translate(-1%,-9%);
+                rotate     : -35deg;
 
-            .graph-div {
-                width             : 100%;
-                height            : 100%;
-                background-color  : white;
+                .section {
+                    display  : flex;
+                    margin   : 10px 0;
+
+                    &:nth-child(2){
+                        transform : translate(7%,0);
+                    }
+                    &:nth-child(3){
+                        transform  : translate(-11%,0);
+                    }
+                    &:nth-child(4){
+                        transform  : translate(-4%,0);
+                    }
+
+                    .partition {
+                        width    : 400px;
+                        display  : flex;
+                        height   : 120px;
+                        margin   : 0 auto;
+
+                        .square {
+                            width             : 140px;
+                            background-color  : white;
+                            margin            : 0 5px;
+                            border            : 5px solid green;
+                        }
+
+                        .description {
+                            width             : calc(100% - 140px);
+                            background-color  : red;
+                            margin            : 0 5px;
+                            position          : relative;
+                            border-left       : 4px solid white;
+
+                            &.rotate {
+                                rotate  : 180deg;
+                            }
+
+                            &:before {
+                                position    : absolute;
+                                content     : "";
+                                top         : 0;
+                                left        : 0;
+                                width       : 70%;
+                                border-top  : 4px solid white;
+                            }
+                            &:before {
+                                position       : absolute;
+                                content        : "";
+                                bottom         : 0;
+                                left           : 0;
+                                width          : 80%;
+                                border-bottom  : 4px solid white;
+                            }
+                        }
+                    }
+                }
             }
-        }    
+        }
     }
 `
 

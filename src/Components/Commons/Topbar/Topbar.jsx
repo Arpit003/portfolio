@@ -11,7 +11,7 @@ import { BREAKPOINTS_VALUE } from 'Styles/Constants';
 
 
 function Topbar(props) {
-    const [isMobileView, setMobileView] = useState(false);
+    const [isMobile, setMobileView] = useState(false);
     const [drawer, openDrawer] = useState(false);
 
     useEffect(() => {
@@ -82,12 +82,12 @@ function Topbar(props) {
 
     return (
         <AppBarWrapper position="fixed" className="settings" classes={{ colorPrimary: "primary", root: "root" }}
-            isMobileView={isMobileView ? 1 : 0}>
+            ismobile={isMobile ? 1 : 0}>
             <ToolbarWrapper variant="regular" classes={{ regular: "regular" }}
             >
-                <TopBarWrapper isMobileView={isMobileView ? 1 : 0}>
+                <TopBarWrapper>
                     {
-                        isMobileView &&
+                        isMobile &&
                         <MenuButton />
                     }
 
@@ -105,7 +105,7 @@ function Topbar(props) {
                         {icons()}
                     </DrawerWrapper>
 
-                    {!isMobileView && icons()}
+                    {!isMobile && icons()}
                 </TopBarWrapper>
             </ToolbarWrapper>
         </AppBarWrapper>

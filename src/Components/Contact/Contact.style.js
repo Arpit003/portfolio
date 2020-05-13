@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { FONTS, responsive } from 'Styles/Constants';
-import { BodyTagWrapper, HtmlTagWrapper, AnimationTextWrapper } from 'Components/Website.style';
 
 export const ContactWrapper = styled.div`
 
@@ -10,21 +9,26 @@ export const ContactWrapper = styled.div`
 
     .form-section {
         width  : 50%;
-         ${responsive.TABLET`
-            width  : 100%;
-            height : 50%;
-         `}
+
+        ${responsive.TABLET`
+            width   : 100%;
+            height  : 50%;
+        `}
+         
         .html-tag-h1-start {
             font-family  : ${FONTS.PRIMARY_ITALIC};
             font-size    : 18px;
-            margin       : 20% 0 0 70px;
+            margin       : 10% 0 0 70px;
             color        : #4b4b4b;
 
             ${responsive.LAPTOP`
-                margin  : 20% 0 0  40px;
+                margin  : 10% 0 0  40px;
             `}
             ${responsive.TABLET`
                 margin  : 10% 0 0 50px;        
+            `}
+            ${responsive.MOBILE`
+                margin  : 10% 0 0 40px;        
             `}
 
         }
@@ -55,32 +59,120 @@ export const ContactWrapper = styled.div`
         .form {
             display    : flex;
             flex-wrap  : wrap;
-            width      : 90%;
-            margin     : 0 auto 0 70px;
+            width      : 80%;
+            margin     : 20px auto 0 70px;
 
             ${responsive.LAPTOP`
-                margin  : 0 auto 0 40px;
+                margin  : 0 auto 0 60px;
             `}
 
             ${responsive.TABLET`
-                margin  : 0 auto 0 10px;
+                margin  : 0 auto 0 50px;
             `}
+            
+            .send {
+                width           : 100px;
+                padding         : 10px 0;
+                margin          : 10px 10px 0 auto;
+                color           : #08f6d2;
+                border-color    : #08f6d2;
+                letter-spacing  : 5px;
+
+                &:hover {
+                    background-color  : #08f6d2;
+                    color             : #333333;
+                    cursor            : default;
+                }
+
+                animation-name       : fadeInUp;
+                opacity              : 0;
+                animation-duration   : 1s;
+                animation-fill-mode  : both;
+                        
+                ${responsive.LAPTOP`
+                    margin  : 10px 0 0 auto;
+                `}
+            }
 
             .inline-field {
-                padding  : 0 10px;
-                width    : 250px;
+                width    : 48%;
+                margin   : 0 auto;
+                
+                animation-name       : fadeInUp;
+                opacity              : 0;
+                animation-duration   : 1s;
+                animation-fill-mode  : both;
 
                 ${responsive.LAPTOP`
-                    width   : 90%;
-                    margin  : 10px auto;
+                    width   : 100%;
+                    margin  : 10px auto 0;
                 `}
             }
 
             .root {
                 background-color  : #2b2b2b;
             }
+
+            .full-width-field {
+                width    : 98%;
+                margin   : 10px auto 0;
+
+                animation-name       : fadeInUp;
+                opacity              : 0;
+                animation-duration   : 3s;
+                animation-fill-mode  : both;
+
+                ${responsive.LAPTOP`
+                    width  : 100%;
+                `}
+            }
+
+            .input-color {
+                border-bottom  : 2px solid transparent;
+                color          : #8d8d8d;
+                margin         : 0 0 0 5px;
+
+                &:focus-within {
+                    color : #8d8d8d;
+                }
+            }
+
+            .underline-color {
+                &.input-error {
+                    &:after {
+                        border-bottom-color  : red; 
+                    }
+                }
+                &:after {
+                    border-bottom  : 2px solid #08fdd8;
+                }
+                &:before {
+                    border-bottom  : 1px solid transparent;
+                }
+            }
+
+            .root {
+                background-color  : #2b2b2b;
+            }
+
             .focused {
                 color  : #08fdd8;
+            }
+
+            .label-filled {
+                color    : #08fdd8;
+                padding  : 0 0 0 10px;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    transform: translate3d(0,40px,0)
+                }
+
+                to {
+                    transform: translate3d(0,0,0);
+                    opacity: 1
+                }
             }
         }
 
@@ -130,7 +222,6 @@ export const ContactWrapper = styled.div`
 
         .map {
             width   : 100%;
-            margin  : 10px auto 0;
         }
     }
 `;
