@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 import Routes from "Routes/Route";
 import TopBar from "./Commons/Topbar/Topbar";
 import { ContentWrapper } from "./Website.style";
-import { URL_ABOUT } from 'Helpers/Paths';
+import { URL_ABOUT, URL_SKILLS } from 'Helpers/Paths';
 
 
 class Website extends Component {
@@ -20,7 +20,7 @@ class Website extends Component {
 		return (
 			<React.Fragment>
 				<TopBar />
-				<ContentWrapper minHeight={path === URL_ABOUT && "850px"}>
+				<ContentWrapper minHeight={path === URL_ABOUT ? "850px" : (path === URL_SKILLS && "970px")}>
 					<Routes />
 				</ContentWrapper>
 			</React.Fragment>

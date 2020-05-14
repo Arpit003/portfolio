@@ -53,7 +53,7 @@ export const BodyTagWrapper = styled.div`
     `}
 
     ${responsive.MOBILE`
-        margin   : 30px 0 0 40px;
+        margin   : 30px 0 0 30px;
     `}
 `
 

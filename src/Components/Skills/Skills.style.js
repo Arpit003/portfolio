@@ -13,6 +13,13 @@ export const SkillsWrapper = styled.div`
     .end-tag {
         position  : absolute;
         bottom    : 20px;
+
+        ${responsive.TABLET`
+            margin    : 0 0 -50%;
+        `}
+        ${responsive.MOBILE`
+            margin    : 0 0 -65%;
+        `}
     }
 
     .blast {
@@ -25,11 +32,13 @@ export const SkillsWrapper = styled.div`
         transform  : translate(0,-50%);
 
         ${responsive.TABLET`
-            top  : 60%;
+            top     : 60%;
+            margin  : 10% 0 0;
         `}
 
         ${responsive.MOBILE`
-            top  : 50%;
+            top     : 50%;
+            margin  : 35% 0 0;
         `}
 
         .html-tag-h1-start {
@@ -68,10 +77,14 @@ export const SkillsWrapper = styled.div`
                 padding  : 10px 0 0 40px;        
             `}
         }
+
+
         .middle-section {
             display    : flex;
-            /* flex-wrap  : wrap; */
 
+            ${responsive.TABLET`
+                flex-wrap  : wrap;
+            `}
             .paragraph {
                 flex-direction       : row;
                 width                : 40%;
@@ -109,7 +122,7 @@ export const SkillsWrapper = styled.div`
 
                 ${responsive.PHABLET`
                     font-size  : 14px;
-                    width      : 90%;
+                    width      : 80%;
                 `}
 
                 ${responsive.MOBILE`
@@ -119,22 +132,61 @@ export const SkillsWrapper = styled.div`
             }
 
             .main-container {
-                /* width    : 50%; */
                 transform  : translate(-1%,-9%);
                 rotate     : -35deg;
+
+                ${responsive.LAPTOP`
+                    transform  : translate(-1%,3%);
+                `};
+                ${responsive.TABLET`
+                    margin  : 0 auto;
+                `}
+                ${responsive.PHABLET`
+                    margin     : 0 auto;
+                    transform  : translate(-2%,0%);
+                `}
+                ${responsive.MOBILE`
+                    rotate     : 0deg;
+                    width      : 100%;
+                    transform  : none;
+                `}
+
 
                 .section {
                     display  : flex;
                     margin   : 10px 0;
 
+                    ${responsive.MOBILE`
+                        flex-wrap  : wrap;
+                        margin     : 5px 0;
+                        &:nth-child(1) {
+                            rotate  : 180deg;
+                        }
+                    `};
+
                     &:nth-child(2){
                         transform : translate(7%,0);
+
+                        ${responsive.MOBILE`
+                            transform  : none;
+                        `}
                     }
+
                     &:nth-child(3){
                         transform  : translate(-11%,0);
+
+                        ${responsive.MOBILE`
+                            transform  : none;
+                        `}
                     }
+
                     &:nth-child(4){
                         transform  : translate(-4%,0);
+
+                        ${responsive.MOBILE`
+                            rotate     : 180deg;
+                            transform  : none;
+                        `}
                     }
 
                     .partition {
@@ -143,11 +195,34 @@ export const SkillsWrapper = styled.div`
                         height   : 120px;
                         margin   : 0 auto;
 
+                        ${responsive.LAPTOP`
+                            width   : 290px;
+                            height  : 100px;
+                        `};
+
+                        ${responsive.TABLET`
+                            width  : 250px;
+                        `}
+
+                        ${responsive.PHABLET`
+                            width  : 240px;
+                        `}
+
+                        ${responsive.MOBILE`
+                            width  : 80%;
+                            margin  : 5px auto;
+                        `}
+
+
                         .square {
                             width             : 140px;
                             background-color  : white;
                             margin            : 0 5px;
                             border            : 5px solid green;
+
+                            ${responsive.LAPTOP`
+                                width  : 120px;
+                            `}
                         }
 
                         .description {
@@ -157,6 +232,9 @@ export const SkillsWrapper = styled.div`
                             position          : relative;
                             border-left       : 4px solid white;
 
+                            ${responsive.LAPTOP`
+                                width  : calc(100% - 70px);                            
+                            `}
                             &.rotate {
                                 rotate  : 180deg;
                             }
