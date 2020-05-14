@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { URL_CONTACT } from 'Helpers/Paths';
 
 function Skills() {
+
     return (
         <SkillsWrapper>
             <div className="start-tag">
@@ -34,7 +35,7 @@ function Skills() {
                             <div className="section">
                                 <div className="partition">
                                     <div className="description rotate"></div>
-                                    <div className="square"></div>
+                                    <div className="square">html</div>
                                 </div>
                             </div>
                             <div className="section">
@@ -88,13 +89,8 @@ const separateWords = (words, type = "single") => {
     let spans = undefined;
 
     spans = text.map((item, index) => {
-        return <span className="blast" key={index}>{item}</span>
+        return <span className="blast" key={index} >{item}</span>
     })
 
     return spans;
 }
-
-// let skills = [
-//     { skill: "React", percent: "90%" },
-//     { skill: "Node", percent: "70%" }
-// ]

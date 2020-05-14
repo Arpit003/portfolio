@@ -101,9 +101,6 @@ export const SkillsWrapper = styled.div`
                         opacity    : 0;
                         transform  : translate3d(0,40px,0)
                     }
-                    50% {
-                        opacity  : 0.5;
-                    }
                     to {
                         transform  : translate3d(0,0,0);
                         opacity    : 1;
@@ -135,6 +132,11 @@ export const SkillsWrapper = styled.div`
                 transform  : translate(-1%,-9%);
                 rotate     : -35deg;
 
+                animation-name       : fadeInUp;
+                opacity              : 0;
+                animation-duration   : 5s;
+                animation-fill-mode  : both;
+
                 ${responsive.LAPTOP`
                     transform  : translate(-1%,3%);
                 `};
@@ -159,13 +161,57 @@ export const SkillsWrapper = styled.div`
                     ${responsive.MOBILE`
                         flex-wrap  : wrap;
                         margin     : 5px 0;
-                        &:nth-child(1) {
-                            rotate  : 180deg;
-                        }
                     `};
 
+                    &:nth-child(1){
+                        animation-name       : child1;
+                        animation-duration   : 3s;
+                        animation-fill-mode  : forwards;
+
+                        @keyframes child1 {
+                            from {
+                                transform  : translate(10% ,0);
+                            }
+                            25% {
+                                transform  : translate(15% ,0);
+                            }
+                            50%{
+                                transform  : translate(-10% ,0);
+                            } 
+                            to {
+                                transform : none;
+                            }
+                        }
+
+                        ${responsive.MOBILE`
+                            rotate  : 180deg;
+                        `}
+                    };
+
                     &:nth-child(2){
-                        transform : translate(7%,0);
+                        animation-name       : child2;
+
+                        ${responsive.MOBILE`
+                            animation  : none;
+                        `}
+
+                        animation-duration   : 3s;
+                        animation-fill-mode  : forwards;
+
+                        @keyframes child2 {
+                            from {
+                                transform  : translate(-10% ,0);
+                            }
+                            25% {
+                                transform  : translate(-20% ,0);
+                            }
+                            50%{
+                                transform  : translate(20% ,0);
+                            } 
+                            to {
+                                transform : translate(7%,0);
+                            }
+                        }
 
                         ${responsive.MOBILE`
                             transform  : none;
@@ -215,10 +261,10 @@ export const SkillsWrapper = styled.div`
 
 
                         .square {
-                            width             : 140px;
-                            background-color  : white;
-                            margin            : 0 5px;
-                            border            : 5px solid green;
+                            width                : 140px;
+                            background-color     : white;
+                            margin               : 0 5px;
+                            border               : 5px solid green;
 
                             ${responsive.LAPTOP`
                                 width  : 120px;
@@ -240,12 +286,24 @@ export const SkillsWrapper = styled.div`
                             }
 
                             &:before {
-                                position    : absolute;
-                                content     : "";
-                                top         : 0;
-                                left        : 0;
-                                width       : 70%;
-                                border-top  : 4px solid white;
+                                position             : absolute;
+                                content              : "";
+                                top                  : 0;
+                                left                 : 0;
+                                width                : 70%;
+                                border-top           : 4px solid white;
+                                animation-name       : borderLine;
+                                animation-duration   : 3s;
+                                animation-fill-mode  : both;
+
+                                @keyframes borderLine {
+                                   from {
+                                       width  : 0%;
+                                   } 
+                                   to {
+                                       width  : 70%;
+                                   }
+                                }
                             }
                             &:before {
                                 position       : absolute;

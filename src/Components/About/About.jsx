@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AboutWrapper } from './About.style';
 import { HtmlTagWrapper, BodyTagWrapper, AnimationTextWrapper } from 'Components/Website.style';
 import ReactIcon from 'Assets/icons/react.png';
@@ -7,7 +7,19 @@ import JsIcon from 'Assets/icons/js-icon.png';
 import CssIcon from 'Assets/icons/css.png';
 import MiddleIcon from 'Assets/icons/middle.jpg';
 
+const sound = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+
 function About() {
+
+    const [audio] = useState(new Audio(sound));
+
+    const stopAudio = () => {
+        audio.pause();
+    }
+    const playAudio = () => {
+        // audio.play();
+    }
+
     return (
         <AboutWrapper>
             <div className="start-tag">
@@ -18,9 +30,9 @@ function About() {
                 <div className="html-tag-h1-start">{"<h1>"}</div>
                 <AnimationTextWrapper>
                     <div className="intro anim-typewriter">
-                        {separateWords('About', 'word')}
+                        <span onMouseEnter={() => playAudio()} onMouseLeave={() => stopAudio()}>{separateWords('About', 'word')}</span>
                     &nbsp;
-                    {separateWords("me", 'word')}
+                    <span onMouseEnter={() => playAudio()} onMouseLeave={() => stopAudio()}>{separateWords('me', 'word')}</span>
                     </div>
                 </AnimationTextWrapper>
                 <div className="html-tag-h1-end">{"<h1/>"}</div>
@@ -69,6 +81,8 @@ function About() {
 }
 
 export default About;
+
+
 
 /*
  *  COMMON FUNCTION FOR CREATE WORD & SINGLE CHARACTER ANIMATION
