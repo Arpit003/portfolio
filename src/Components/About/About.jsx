@@ -1,33 +1,51 @@
 import React, { useState } from 'react';
+
+//STYLE
 import { AboutWrapper } from './About.style';
 import { HtmlTagWrapper, BodyTagWrapper, AnimationTextWrapper } from 'Components/Website.style';
+
+//IMAGES (ICONS)
 import ReactIcon from 'Assets/icons/react.png';
 import NodeIcon from 'Assets/icons/node.png';
 import JsIcon from 'Assets/icons/js-icon.png';
 import CssIcon from 'Assets/icons/css.png';
 import MiddleIcon from 'Assets/icons/middle.jpg';
 
+//SOUND FILE FOR HOVER 
 const sound = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
 
 function About() {
 
     const [audio] = useState(new Audio(sound));
 
+    /* 
+     * STOP AUDIO
+     */
     const stopAudio = () => {
         audio.pause();
     }
+
+    /* 
+     * PLAY AUDIO ON HOVER
+     */
     const playAudio = () => {
         // audio.play();
     }
 
     return (
         <AboutWrapper>
+
+            {/* START BODY & HTML TAG */}
             <div className="start-tag">
                 <HtmlTagWrapper>{"<html>"}</HtmlTagWrapper>
                 <BodyTagWrapper>{"<body>"}</BodyTagWrapper>
             </div>
+
+            {/* MIDDLE SECTION  */}
             <div className='container'>
                 <div className="html-tag-h1-start">{"<h1>"}</div>
+
+                {/* TYPEWRITER EFFECT */}
                 <AnimationTextWrapper>
                     <div className="intro anim-typewriter">
                         <span onMouseEnter={() => playAudio()} onMouseLeave={() => stopAudio()}>{separateWords('About', 'word')}</span>
@@ -36,6 +54,8 @@ function About() {
                     </div>
                 </AnimationTextWrapper>
                 <div className="html-tag-h1-end">{"<h1/>"}</div>
+
+                {/* CONTENT */}
                 <div className="middle-section">
                     <div className="paragraph">
                         <h3>
@@ -56,6 +76,8 @@ function About() {
                         //     <div></div>
                         // </section>
                     }
+
+                    {/* ANIMATION SECTION OF CIRCLE */}
                     <div className="circle">
                         <div className="parent">
                             {
@@ -72,6 +94,8 @@ function About() {
                     </div>
                 </div>
             </div>
+
+            {/* END OF BODY & HTML TAG */}
             <div className="end-tag">
                 <BodyTagWrapper>{"</body>"}</BodyTagWrapper>
                 <HtmlTagWrapper>{"</html>"}</HtmlTagWrapper>

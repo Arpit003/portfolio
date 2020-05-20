@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { FONTS, responsive } from 'Styles/Constants';
 
 export const SkillsWrapper = styled.div`
-    color     : white;
+    color     : #F5FFFA;
     overflow  : hidden;
     height    : 100%;
 
@@ -30,7 +30,8 @@ export const SkillsWrapper = styled.div`
         top        : 50%;
         position   : absolute;
         transform  : translate(0,-50%);
-
+        margin     : 20px 0 0;
+        
         ${responsive.TABLET`
             top     : 60%;
             margin  : 10% 0 0;
@@ -134,7 +135,7 @@ export const SkillsWrapper = styled.div`
 
                 animation-name       : fadeInUp;
                 opacity              : 0;
-                animation-duration   : 5s;
+                animation-duration   : 1s;
                 animation-fill-mode  : both;
 
                 ${responsive.LAPTOP`
@@ -219,7 +220,29 @@ export const SkillsWrapper = styled.div`
                     }
 
                     &:nth-child(3){
-                        transform  : translate(-11%,0);
+                        animation-name       : child3;
+
+                        ${responsive.MOBILE`
+                            animation  : none;
+                        `}
+
+                        animation-duration   : 3s;
+                        animation-fill-mode  : forwards;
+
+                        @keyframes child3 {
+                            from {
+                                transform  : translate(10% ,0);
+                            }
+                            25% {
+                                transform  : translate(20% ,0);
+                            }
+                            50%{
+                                transform  : translate(-20% ,0);
+                            } 
+                            to {
+                                transform : translate(-11%,0);
+                            }
+                        }
 
                         ${responsive.MOBILE`
                             transform  : none;
@@ -227,12 +250,29 @@ export const SkillsWrapper = styled.div`
                     }
 
                     &:nth-child(4){
-                        transform  : translate(-4%,0);
+                        animation-name       : child4;
+                        animation-duration   : 3s;
+                        animation-fill-mode  : forwards;
 
                         ${responsive.MOBILE`
                             rotate     : 180deg;
                             transform  : none;
                         `}
+
+                        @keyframes child4 {
+                            from {
+                                transform  : translate(-10% ,0);
+                            }
+                            25% {
+                                transform  : translate(-15% ,0);
+                            }
+                            50%{
+                                transform  : translate(10% ,0);
+                            } 
+                            to {
+                                transform : translate(0 ,0);
+                            }
+                        }
                     }
 
                     .partition {
@@ -264,7 +304,7 @@ export const SkillsWrapper = styled.div`
                             width                : 140px;
                             background-color     : white;
                             margin               : 0 5px;
-                            border               : 5px solid green;
+                            /* border               : 5px solid green; */
 
                             ${responsive.LAPTOP`
                                 width  : 120px;
@@ -273,10 +313,10 @@ export const SkillsWrapper = styled.div`
 
                         .description {
                             width             : calc(100% - 140px);
-                            background-color  : red;
+                            background-color  : transparent;
                             margin            : 0 5px;
                             position          : relative;
-                            border-left       : 4px solid white;
+                            border-left       : 4px solid #F5FFFA;
 
                             ${responsive.LAPTOP`
                                 width  : calc(100% - 70px);                            
@@ -291,7 +331,7 @@ export const SkillsWrapper = styled.div`
                                 top                  : 0;
                                 left                 : 0;
                                 width                : 70%;
-                                border-top           : 4px solid white;
+                                border-top           : 4px solid #F5FFFA;
                                 animation-name       : borderLine;
                                 animation-duration   : 3s;
                                 animation-fill-mode  : both;
@@ -311,7 +351,7 @@ export const SkillsWrapper = styled.div`
                                 bottom         : 0;
                                 left           : 0;
                                 width          : 80%;
-                                border-bottom  : 4px solid white;
+                                border-bottom  : 4px solid #F5FFFA;
                             }
                         }
                     }

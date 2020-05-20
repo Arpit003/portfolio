@@ -1,9 +1,18 @@
 import React from 'react';
+
+//STYLE
 import { ContactWrapper } from './Contact.style';
 import { BodyTagWrapper, HtmlTagWrapper, AnimationTextWrapper } from 'Components/Website.style';
+
+//MATERIAL UI COMPONENTS
 import { TextField, Button } from '@material-ui/core';
+
+//GOOGLE MAP
 import { Map, GoogleApiWrapper } from 'google-maps-react';
+
+//FORMIK
 import { Formik, Form } from 'formik';
+
 // Yup for creating validation schema
 import * as Yup from "yup";
 
@@ -26,12 +35,10 @@ const validationSchema = Yup.object({
 function Contact(props) {
 
     /* 
-    * submit register form
-    */
+     * submit register form
+     */
     const handleSubmit = async (values) => {
-
         //api call
-        // new Api().post('/path', values);
     }
 
 
