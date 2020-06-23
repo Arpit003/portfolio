@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { HomeWrapper } from './Home.style'
 import { Button } from "@material-ui/core";
 import { BodyTagWrapper, HtmlTagWrapper, AnimationTextWrapper } from "Components/Website.style";
+import { Redirect } from "react-router-dom";
+import { URL_CONTACT } from "Helpers/Paths";
 
 function User(props) {
+    const [redirect, redirectContact] = useState(false);
+
+    const redirectToContact = () => {
+        redirectContact(true)
+    }
+
+    if (redirect)
+        return <Redirect to={URL_CONTACT}></Redirect>;
 
     return (
         <HomeWrapper>
@@ -40,7 +50,7 @@ function User(props) {
                         <div className="html-tag-h1-end">{"<h1/>"}</div>
                     }
                     <div className="stacks">Front End Developer / Back End Developer</div>
-                    <Button variant="outlined" className="contact">CONTACT ME</Button>
+                    <Button variant="outlined" className="contact" onClick={redirectToContact}>CONTACT ME</Button>
                 </div>
                 {/* RIGHT SIDE ANIMATION */}
                 {

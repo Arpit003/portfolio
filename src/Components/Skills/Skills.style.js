@@ -3,15 +3,16 @@ import { FONTS, responsive } from 'Styles/Constants';
 
 export const SkillsWrapper = styled.div`
     color     : #F5FFFA;
-    overflow  : hidden;
-    height    : 100%;
+    overflow-x  : hidden;
+    height    : 100vh;
 
     .start-tag {
-        position  : absolute;
+        padding  : 70px 0 0;
+        /* position  : absolute; */
     }   
 
     .end-tag {
-        position  : absolute;
+        /* position  : absolute;
         bottom    : 20px;
 
         ${responsive.TABLET`
@@ -19,7 +20,7 @@ export const SkillsWrapper = styled.div`
         `}
         ${responsive.MOBILE`
             margin    : 0 0 -65%;
-        `}
+        `} */
     }
 
     .blast {
@@ -27,20 +28,10 @@ export const SkillsWrapper = styled.div`
     }
 
     .container {
-        top        : 50%;
-        position   : absolute;
-        transform  : translate(0,-50%);
-        margin     : 20px 0 0;
-        
-        ${responsive.TABLET`
-            top     : 60%;
-            margin  : 10% 0 0;
-        `}
-
-        ${responsive.MOBILE`
-            top     : 50%;
-            margin  : 35% 0 0;
-        `}
+        /* top        : 50%; */
+        /* position   : absolute; */
+        /* transform  : translate(0,-50%); */
+        margin     : 2% 0 0;
 
         .html-tag-h1-start {
             font-family  : ${FONTS.PRIMARY_ITALIC};

@@ -3,16 +3,16 @@ import { FONTS, responsive } from 'Styles/Constants';
 
 export const AboutWrapper = styled.div`
     color     : white;
-    overflow  : hidden;
-    height    : 100%;
-
+    overflow-x : hidden;
+    height    : 100vh;
+    
     .start-tag {
-        position  : absolute;
-    }   
+        padding  : 70px 0 0;
+    }
 
     .end-tag {
-        position  : absolute;
-        bottom    : 20px;
+        /* position  : absolute; */
+        /* bottom    : 20px; */
     }
 
     .blast {
@@ -20,10 +20,8 @@ export const AboutWrapper = styled.div`
     }
 
     .container {
-        top        : 50%;
-        position   : absolute;
-        transform  : translate(0,-50%);
-
+        margin     : 5% 0;
+        
         ${responsive.TABLET`
             top  : 60%;
         `}

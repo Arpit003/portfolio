@@ -13,22 +13,25 @@ export const ContactWrapper = styled.div`
         ${responsive.TABLET`
             width   : 100%;
             height  : 50%;
+            margin  : 10% 0 0;
         `}
          
         .html-tag-h1-start {
             font-family  : ${FONTS.PRIMARY_ITALIC};
             font-size    : 18px;
-            margin       : 10% 0 0 70px;
+            padding      : 40px 0 0 70px;
             color        : #4b4b4b;
+            cursor       : default;
 
-            ${responsive.LAPTOP`
-                margin  : 10% 0 0  40px;
-            `}
             ${responsive.TABLET`
-                margin  : 10% 0 0 50px;        
+                padding  : 30px 0 0 40px;
             `}
+            ${responsive.PHABLET`
+                padding  : 30px 0 0 50px;        
+            `}
+
             ${responsive.MOBILE`
-                margin  : 10% 0 0 40px;        
+                padding  : 30px 0 0 40px;        
             `}
 
         }
@@ -36,19 +39,19 @@ export const ContactWrapper = styled.div`
         .html-tag-h1-end {
             font-family  : ${FONTS.PRIMARY_ITALIC};
             font-size    : 18px;
-            margin       : 1% 0 0 70px;
+            padding      : 1% 0 0 70px;
             color        : #4b4b4b;
+            cursor       : default;
 
-            ${responsive.LAPTOP`
-                margin  : 1% 0 0  40px;
+            ${responsive.TABLET`
+                padding  : 0 0 0 40px;
             `}
-
             ${responsive.PHABLET`
-                margin  : 1% 0 0 50px;        
+                padding  : 0 0 0 50px;        
             `}
 
             ${responsive.MOBILE`
-                margin  : 1% 0 0 40px;        
+                padding  : 0 0 0 40px;        
             `}
         }
 
@@ -77,6 +80,7 @@ export const ContactWrapper = styled.div`
                 color           : #08f6d2;
                 border-color    : #08f6d2;
                 letter-spacing  : 5px;
+                cursor          : default;
 
                 &:hover {
                     background-color  : #08f6d2;
@@ -186,7 +190,8 @@ export const ContactWrapper = styled.div`
             opacity              : 0;
             animation-delay      : 2s;
             animation-fill-mode  : forwards;
-
+            cursor               : default;
+            
             @keyframes fadeIn {
                 from { opacity: 0; }
                 to { opacity: 1; }

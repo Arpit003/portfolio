@@ -3,21 +3,18 @@ import { responsive, FONTS } from "Styles/Constants";
 
 export const ContentWrapper = styled.div`
 
-    margin      : 0 0 0 100px;
-    height      : 90vh;
-    min-height  : 800px;
+    margin      : 0 0 0 20px;
+    height      : 100vh;
     
     ${responsive.LAPTOP`
-        min-height  : 850px;
     `}
 
     ${responsive.PHABLET`
-        margin      : 70px 0 0;
-        min-height  : 700px;
+        margin      : 0;
     `}
 
     ${responsive.MOBILE`
-        min-height  : ${props => props.minHeight ? props.minHeight : "470px"};
+        // min-height  : ${props => props.minHeight ? props.minHeight : "470px"};
     `}
 `;
 
@@ -62,6 +59,7 @@ export const HtmlTagWrapper = styled.div`
     font-size    : 18px;
     padding      : 50px 0 0 30px;
     color        : #4b4b4b;
+    cursor       : default;
 
     ${responsive.LAPTOP`
         padding  : 0;
@@ -89,7 +87,8 @@ export const AnimationTextWrapper = styled.div`
         font-size       : 70px;
         white-space     : nowrap;
         overflow        : hidden;
-
+        cursor          : default;
+        
         .blast {
             animation-duration         : 1s;
             animation-fill-mode        : both;
@@ -143,7 +142,7 @@ export const AnimationTextWrapper = styled.div`
         ${responsive.MOBILE`
             font-size  : 30px;
             width      : 150px;
-            padding    : 0 0 0 50px;
+            padding    : 0 0 0 45px;
         `}
         
         /* Animation */

@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-
-import { faHome, faUser, faUserCog, faEnvelope, faCode } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { URL_HOME, URL_ABOUT, URL_SKILLS, URL_CONTACT } from "Helpers/Paths";
-import { ToolbarWrapper, AppBarWrapper, TopBarWrapper, DrawerWrapper } from "./Topbar.style";
+import { ToolbarWrapper, AppBarWrapper, TopBarWrapper } from "./Topbar.style";
 import { IconButton } from '@material-ui/core';
 
+// import Logo from 'Assets/icons/svgdemo.svg';
 import { BREAKPOINTS_VALUE } from 'Styles/Constants';
 
 
 function Topbar(props) {
-    const [isMobile, setMobileView] = useState(false);
     const [drawer, openDrawer] = useState(false);
 
     useEffect(() => {
         handleVisible();
-        window.addEventListener('resize', handleVisible)
+        window.addEventListener('resize', handleVisible);
         return () => {
-            window.removeEventListener('resize', handleVisible)
+            window.removeEventListener('resize', handleVisible);
         }
     }, []);
 
@@ -28,18 +25,17 @@ function Topbar(props) {
     const handleVisible = () => {
 
         if (window.innerWidth < BREAKPOINTS_VALUE.PHABLET) {
-            setMobileView(true);
             return;
         }
+
         openDrawer(false);
-        setMobileView(false);
     }
 
     /* 
      * CHANGE PAGE
      */
     const changePage = (path) => {
-        openDrawer(false)
+        menuClick()
         props.history.push(path)
     }
 
@@ -47,7 +43,9 @@ function Topbar(props) {
      * OPEN MENU FOR MOBILE VIEWS
      */
     const menuClick = () => {
-        openDrawer(!drawer)
+        if (drawer) document.getElementById("myNav").style.height = "0";
+        else document.getElementById("myNav").style.height = "100%";
+        openDrawer(!drawer);
     }
 
     /* 
@@ -55,57 +53,39 @@ function Topbar(props) {
      */
     const MenuButton = (props) => (
         <IconButton onClick={() => menuClick()}>
-            <div className={`menu-icon ${drawer ? 'close-menu' : ''}`}>
+            <div className={`menu-icon ${drawer && "close-menu"}`}>
                 <div className="menu-line first-line"></div>
                 <div className="menu-line second-line"></div>
+                <div className="menu-line third-line"></div>
                 <div className="menu-line last-line"></div>
             </div>
         </IconButton>
-    )
-
-    /* 
-     * COMMON ICONS FOR MOBILE VIEW & DESKTOP VIEW
-     */
-    const icons = () => (
-        <div className="icons">
-            <div className="icon">
-                <FontAwesomeIcon icon={faHome} className={`icon-property ${pathName === URL_HOME && "active"}`} onClick={() => changePage(URL_HOME)} />
-                <FontAwesomeIcon icon={faUser} className={`icon-property ${pathName === URL_ABOUT && "active"}`} onClick={() => changePage(URL_ABOUT)} />
-                <FontAwesomeIcon icon={faUserCog} className={`icon-property ${pathName === URL_SKILLS && "active"}`} onClick={() => changePage(URL_SKILLS)} />
-                <FontAwesomeIcon icon={faCode} className="icon-property" />
-                <FontAwesomeIcon icon={faEnvelope} className={`icon-property ${pathName === URL_CONTACT && "active"}`} onClick={() => changePage(URL_CONTACT)} />
-            </div>
-        </div>
     )
 
     let pathName = props.location.pathname;
 
     return (
         <AppBarWrapper position="fixed" className="settings" classes={{ colorPrimary: "primary", root: "root" }}
-            ismobile={isMobile ? 1 : 0}>
+        >
+            <div id="myNav" className="overlay">
+                <div className="overlay-content">
+                    <div className="icons">
+                        <div className="icon">
+                            <span className={`icon-property ${pathName === URL_HOME && "active"} ${drawer && "animate"}`} onClick={() => changePage(URL_HOME)} >Home</span>
+                            <span className={`icon-property ${pathName === URL_ABOUT && "active"} ${drawer && "animate"}`} onClick={() => changePage(URL_ABOUT)} >About</span>
+                            <span className={`icon-property ${pathName === URL_SKILLS && "active"} ${drawer && "animate"}`} onClick={() => changePage(URL_SKILLS)} >Skills</span>
+                            <span className={`icon-property ${drawer && "animate"}`}>Work</span>
+                            <span className={`icon-property ${pathName === URL_CONTACT && "active"} ${drawer && "animate"}`} onClick={() => changePage(URL_CONTACT)} >Contact</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <ToolbarWrapper variant="regular" classes={{ regular: "regular" }}
             >
-                <TopBarWrapper>
-                    {
-                        isMobile &&
-                        <MenuButton />
-                    }
+                <TopBarWrapper ismobile={drawer ? 1 : 0}>
 
-                    <DrawerWrapper
-                        anchor="right"
-                        classes={{
-                            paperAnchorRight: "drawer"
-                        }}
-                        open={drawer}
-                        BackdropProps={{ invisible: true }}
-                        transitionDuration={1000}
-                        onClose={() => menuClick()}
-                        onOpen={() => menuClick()}
-                    >
-                        {icons()}
-                    </DrawerWrapper>
+                    <MenuButton />
 
-                    {!isMobile && icons()}
                 </TopBarWrapper>
             </ToolbarWrapper>
         </AppBarWrapper>

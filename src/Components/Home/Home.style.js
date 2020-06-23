@@ -7,18 +7,16 @@ export const colors = "#4d4d4e";
 
 export const HomeWrapper = styled.div`
 
-    overflow  : hidden;
-    height    : 100%;
+    overflow-x  : hidden;
+    height      : 100vh;
 
     .start-tag {
-        position  : absolute;
+        padding  : 70px 0 0;
     }
-
+    
     .container {
         display    : flex;
-        position   : absolute;
-        top        : 50%;
-        transform  : translate(0,-50%);
+        margin     : 5% 0;
 
         .left-side {
             width  : 100%;
@@ -167,14 +165,24 @@ export const HomeWrapper = styled.div`
 
         .right-side {
             z-index  : -100;
+            margin   : 0 0 0 -30%;
+            width    : 100%;
+
+            ${responsive.TABLET`
+                margin  : 0 0 0 -50%;
+            `}
+
+            ${responsive.MOBILE`
+                margin  : 0 0 0 -80%;
+            `}
+
             .image-logo {
                 
-                width   : calc(100% - 60%);
-                height  : 600px;
+                height  : 400px;
                 font    : 38em/1 ${FONTS.PRIMARY};
                 
                 ${responsive.LAPTOP`
-                    margin  : 0 0 0 -150px;
+                    
                 `}
                 
                 ${responsive.TABLET`
@@ -184,43 +192,37 @@ export const HomeWrapper = styled.div`
 
                 ${responsive.PHABLET`
                     font    : 22em/1 ${FONTS.PRIMARY};
-                    // height  : 400px;
                 `}
 
                 ${responsive.MOBILE`
                     font    : 20em/1 ${FONTS.PRIMARY};
-                    height  :0px;
+                    height  : 0px;
                 `}
 
                 svg {
-                    position   : absolute;
-                    width      : 60%;
-                    height     : 100%;
-                    top        : 50%;
-                    transform  : translate(0,-65%);
+                    position   : relative;
+                    width      : 100%;
+                    height     : 512px;
+                    /* top        : 50%; */
+                    /* transform  : translate(0,-65%); */
                     /* rotate     : -18deg; */
                     overflow   : hidden;
 
                     ${responsive.LAPTOP`
-                        width      : 55%;
-                        transform  : translate(-30%,-65%);
+                        width      : 100%;
+                        
                     `}
 
                     ${responsive.TABLET`
-                        width      : 50%;
-                        opacity    : 0.5;
-                        transform  : translate(-50%,-50%);
+                        height  : 350px;
                     `}
 
                     ${responsive.PHABLET`
-                        width      : 60%;
-                        transform  : translate(-30%,-70%);
+                        height  : 300px;
                     `}
 
                     ${responsive.MOBILE`
-                        width      : 70%
-                        transform  : translate(-50%,-53%);
-                        overflow   : hidden;
+                        height   : 270px;
                     `}
                 }
 
@@ -246,8 +248,6 @@ export const HomeWrapper = styled.div`
     } 
 
     .end-tag {
-        position   : absolute;
-        bottom     : 30px;
     }
     
 `
@@ -256,7 +256,7 @@ function createCSS() {
     let styles = '';
 
     for (let item = 1; item <= max; item++) {
-        let color = (item === 2 || item === 3) ? "#fc0854" : "#08fdd8";
+        let color = (item === 4 || item === 3) ? "#fc0854" : "#08fdd8";
         styles += `
             &:nth-child(${item}) {
                 stroke: ${color};
