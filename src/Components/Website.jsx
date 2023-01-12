@@ -2,24 +2,27 @@
 import React, { Component } from 'react';
 // import { connect } from 'react-redux';
 
+import { withRouter } from 'react-router-dom';
+
 // USER DEFINED
 import Routes from "Routes/Route";
 import TopBar from "./Commons/Topbar/Topbar";
-import EventManager from "./EventManager/EventManager";
 import { ContentWrapper } from "./Website.style";
+import { URL_ABOUT, URL_SKILLS } from 'Helpers/Paths';
 
 
 class Website extends Component {
 
+
 	render() {
+		let path = this.props.location.pathname;
+
 		return (
 			<React.Fragment>
 				<TopBar />
-				<ContentWrapper>
+				<ContentWrapper minHeight={path === URL_ABOUT ? "850px" : (path === URL_SKILLS && "970px")}>
 					<Routes />
 				</ContentWrapper>
-
-				<EventManager />
 			</React.Fragment>
 		);
 	}
@@ -29,7 +32,7 @@ class Website extends Component {
 // const mapReduxStateToProps = (state) => ({
 // 	isLoggedIn: state.Auth.isLoggedIn,
 // })
-  
+
 // export default connect(mapReduxStateToProps)(Website);
 
-export default Website;
+export default withRouter(Website);

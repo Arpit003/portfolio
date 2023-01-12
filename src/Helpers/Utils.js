@@ -1,14 +1,14 @@
 export const isEqualsArray = (arr1, arr2) => {
-    if(!(arr1 instanceof Array ) || !(arr1 instanceof Array ))
-        return false;
-    
-    if(arr1.length !== arr2.length)
+    if (!(arr1 instanceof Array) || !(arr1 instanceof Array))
         return false;
 
-    if(arr1 instanceof Object && arr2 instanceof Object) {
+    if (arr1.length !== arr2.length)
+        return false;
+
+    if (arr1 instanceof Object && arr2 instanceof Object) {
         let isEqual = true, arrayLength = arr1.length;
         for (let index = 0; index < arrayLength && isEqual; index++) {
-            if(JSON.stringify(arr1[index]) !== JSON.stringify(arr2[index]))
+            if (JSON.stringify(arr1[index]) !== JSON.stringify(arr2[index]))
                 isEqual = false;
         }
 
@@ -19,8 +19,8 @@ export const isEqualsArray = (arr1, arr2) => {
 }
 
 export function isEmpty(obj) {
-    for(var key in obj) {
-        if(obj.hasOwnProperty(key))
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key))
             return false;
     }
     return true;
@@ -34,4 +34,20 @@ export function isIEBrowser() {
     // const msedge = ua.indexOf('Edge/');
     return msie > 0 || msie11 > 0;
     // const isEdge = msedge > 0;
+}
+
+/* 
+ *  COMMON FUNCTION FOR CREATE WORD & SINGLE CHARACTER ANIMATION
+ */
+export const separateWords = (words, type = "single") => {
+
+    let text = (type === "single") ? words.split('') : words.split(' ');
+
+    let spans = undefined;
+
+    spans = text.map(item => {
+        return <span className="blast">{item}</span>
+    })
+
+    return spans;
 }

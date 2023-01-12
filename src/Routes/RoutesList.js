@@ -1,19 +1,28 @@
 import LazyLoader from '@loadable/component'
 
-import { URL_DASHBOARD, URL_USER } from "Helpers/Paths";
+import { URL_HOME, URL_ABOUT, URL_SKILLS, URL_CONTACT } from "Helpers/Paths";
 
-export default  [
+export default [
     {
-        path        :   "/",
-        exact       :   true,
-        component   :   LazyLoader(() => import('Components/Dashboard/Dashboard'))
+        path: "/",
+        exact: true,
+        component: LazyLoader(() => import('Components/Home/Home'))
     }, {
-        path        :   URL_DASHBOARD,
-        exact       :   true,
-        component   :   LazyLoader(() => import('Components/Dashboard/Dashboard'))
-    } , {
-        path        :   URL_USER,
-        exact       :   true,
-        component   :   LazyLoader(() => import('Components/User/User'))
+        path: URL_HOME,
+        exact: true,
+        component: LazyLoader(() => import('Components/Home/Home'))
+    }, {
+        path: URL_ABOUT,
+        exact: true,
+        component: LazyLoader(() => import('Components/About/About'))
+    }, {
+        path: URL_SKILLS,
+        exact: true,
+        component: LazyLoader(() => import('Components/Skills/Skills'))
+    }, {
+        path: URL_CONTACT,
+        exact: true,
+        component: LazyLoader(() => import('Components/Contact/Contact'))
     }
+
 ]

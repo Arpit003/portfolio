@@ -52,11 +52,11 @@ export const BREAKPOINTS = {
 //Fonts
 
 export const FONTS = {
-  // PRIMARY         : "Gotham Book",
+  PRIMARY         : "Roboto, sans-serif",
   // PRIMARY_BOLD    : "Gotham Bold",
-  // PRIMARY_LIGHT   : "Gotham Thin",
+  PRIMARY_LIGHT   : "Didact Gothic, sans-serif",
   // PRIMARY_MEDIUM  : "Gotham Medium",
-  // PRIMARY_ITALIC  : "Gotham Book Italic",
+  PRIMARY_ITALIC  : "La Belle Aurore,cursive",
 
   // SECONDARY         : "PolarisCondensed-Book",
   // SECONDARY_MEDIUM  : "PolarisCondensed-Medium",
